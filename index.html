@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merq Vault — Your Financial Life, Finally Simple</title>
+  <meta name="description" content="Budget smarter, track your net worth, manage bills, and share finances with your partner. Merq Vault is the personal finance app built for real life." />
+  
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #2ECC8A;
+      --green-dark: #064E35;
+      --green-light: #E8F7F1;
+      --navy: #1B2B3A;
+      --navy-mid: #2D4255;
+      --slate: #5B8FAA;
+      --muted: #8899AA;
+      --bg: #F7F9FC;
+      --white: #ffffff;
+      --red: #F04E4E;
+      --yellow: #F5A623;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      background: rgba(27,43,58,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .logo {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .logo span { color: var(--green); }
+
+    .nav-cta {
+      background: var(--green);
+      color: var(--green-dark);
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(46,204,138,0.35);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(46,204,138,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(91,143,170,0.12) 0%, transparent 60%);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(46,204,138,0.12);
+      border: 1px solid rgba(46,204,138,0.3);
+      color: var(--green);
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 32px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: clamp(44px, 8vw, 88px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+      animation: fadeUp 0.6s 0.1s ease both;
+      font-stretch: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    .hero p {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      max-width: 520px;
+      line-height: 1.6;
+      margin-bottom: 44px;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: var(--green-dark);
+      padding: 16px 36px;
+      border-radius: 100px;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(46,204,138,0.4);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: rgba(255,255,255,0.7);
+      padding: 16px 28px;
+      border-radius: 100px;
+      font-size: 16px;
+      font-weight: 400;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.15);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.4);
+      color: #fff;
+    }
+
+    .trial-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--muted);
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+    .trial-note strong { color: var(--green); }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: rgba(255,255,255,0.04);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 64px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--green);
+    }
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ── FEATURES ── */
+    .section {
+      padding: 100px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      padding-bottom: 4px;
+    }
+
+    .section-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.5);
+      font-weight: 300;
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: 60px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 32px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(46,204,138,0.3);
+    }
+
+    .feature-icon {
+      font-size: 36px;
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    .feature-title {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .feature-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* ── COUPLE SECTION ── */
+    .couple-section {
+      background: rgba(46,204,138,0.06);
+      border-top: 1px solid rgba(46,204,138,0.15);
+      border-bottom: 1px solid rgba(46,204,138,0.15);
+      padding: 100px 24px;
+    }
+
+    .couple-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .couple-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .couple-step {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--green);
+      color: var(--green-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-weight: 800;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .step-content h4 {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .step-content p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .couple-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .mock-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 20px 24px;
+    }
+
+    .mock-card-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .mock-card-value {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--green);
+    }
+
+    .mock-card-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 4px;
+    }
+
+    .mock-row {
+      display: flex;
+      gap: 16px;
+    }
+
+    .mock-pill {
+      background: rgba(46,204,138,0.12);
+      border: 1px solid rgba(46,204,138,0.2);
+      color: var(--green);
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .mock-pill.orange {
+      background: rgba(245,166,35,0.12);
+      border-color: rgba(245,166,35,0.2);
+      color: var(--yellow);
+    }
+
+    /* ── PRICING ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 36px;
+      transition: transform 0.2s;
+    }
+
+    .pricing-card.featured {
+      background: var(--green);
+      border-color: var(--green);
+      color: var(--green-dark);
+    }
+
+    .pricing-card:hover { transform: translateY(-4px); }
+
+    .pricing-plan {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.6;
+      margin-bottom: 12px;
+    }
+
+    .pricing-price {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .pricing-period {
+      font-size: 14px;
+      opacity: 0.6;
+      margin-bottom: 28px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .pricing-features li {
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0.85;
+    }
+
+    .pricing-features li::before {
+      content: '✓';
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .pricing-btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 500;
+      text-align: center;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .pricing-card:not(.featured) .pricing-btn {
+      background: var(--green);
+      color: var(--green-dark);
+    }
+
+    .pricing-card.featured .pricing-btn {
+      background: var(--green-dark);
+      color: var(--green);
+    }
+
+    .pricing-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      padding: 120px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(46,204,138,0.12) 0%, transparent 70%);
+    }
+
+    .cta-section h2 {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .cta-section p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 44px;
+      font-weight: 300;
+      position: relative;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 18px;
+      font-weight: 800;
+    }
+    .footer-logo span { color: var(--green); }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .stats-bar { gap: 32px; padding: 28px 20px; }
+      .couple-inner { grid-template-columns: 1fr; gap: 48px; }
+      .couple-visual { display: none; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 360px; }
+      footer { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Merq<span>Vault</span></div>
+    <a href="https://merq-vault.vercel.app/signup" class="nav-cta">Start free →</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-badge">✦ No bank login required · No credit card needed</div>
+    <h1>Your money.<br><em>Finally</em> under control.</h1>
+    <p>Budget smarter, track your net worth, manage bills, and share finances with your partner — all in one beautifully simple app.</p>
+    <div class="hero-actions">
+      <a href="https://merq-vault.vercel.app/signup" class="btn-primary">Start for free →</a>
+      <a href="#features" class="btn-ghost">See how it works</a>
+    </div>
+    <p class="trial-note"><strong>3 months free</strong> — no credit card, no auto-charge, ever.</p>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-number">$0</div>
+      <div class="stat-label">To get started</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">5</div>
+      <div class="stat-label">Min setup time</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">No</div>
+      <div class="stat-label">Bank login needed</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">∞</div>
+      <div class="stat-label">Financial clarity</div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="section-label">Everything you need</div>
+    <h2 class="section-title">Built for how you<br>actually live</h2>
+    <p class="section-sub">Not another spreadsheet. Not another app that requires your bank password. Just the features that matter.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">📊</span>
+        <div class="feature-title">Smart Budgeting</div>
+        <div class="feature-desc">Set spending limits by category and watch your budget in real time. Velocity alerts warn you before you overspend — not after.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🏦</span>
+        <div class="feature-title">Net Worth Tracker</div>
+        <div class="feature-desc">Add your accounts manually — no bank login ever. Track assets and liabilities to see your true financial picture in one place.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📅</span>
+        <div class="feature-title">Bill Management</div>
+        <div class="feature-desc">Never miss a payment. Track recurring and one-time bills with due date reminders so nothing sneaks up on you.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">💳</span>
+        <div class="feature-title">Debt Payoff</div>
+        <div class="feature-desc">See all your debts in one place with payoff timelines. Use the extra payment calculator to see exactly how much interest you'll save.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🎯</span>
+        <div class="feature-title">Savings Goals</div>
+        <div class="feature-desc">Emergency fund, vacation, new car — set it, track it, crush it. Monthly savings targets keep you on pace automatically.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🧾</span>
+        <div class="feature-title">Receipt Scanner</div>
+        <div class="feature-desc">Snap a photo of any receipt or bill. Business expenses and charitable giving are saved automatically for tax season.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COUPLE SECTION -->
+  <div class="couple-section" id="couples">
+    <div class="couple-inner">
+      <div>
+        <div class="section-label">Built for couples too</div>
+        <h2 class="section-title">One app.<br>Two people.<br><em style="color:var(--green)">Zero arguments.</em></h2>
+        <p class="section-sub" style="margin-bottom:0">Invite your partner and share your full financial picture — budgets, net worth, bills, goals, everything.</p>
+        <div class="couple-steps">
+          <div class="couple-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h4>Set up your account</h4>
+              <p>Takes 5 minutes. Add your income, bills, and accounts to get started.</p>
+            </div>
+          </div>
+          <div class="couple-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h4>Invite your partner</h4>
+              <p>Send an invite from Settings. They'll get a link to join and connect in seconds.</p>
+            </div>
+          </div>
+          <div class="couple-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h4>Share everything</h4>
+              <p>Combined net worth, shared budget, merged transaction history. Both people keep their own login.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="couple-visual">
+        <div class="mock-card">
+          <div class="mock-card-label">Combined Net Worth</div>
+          <div class="mock-card-value">$142,800</div>
+          <div class="mock-card-sub">↑ $8,400 from last month</div>
+        </div>
+        <div class="mock-row">
+          <div class="mock-card" style="flex:1">
+            <div class="mock-card-label">Budget Left</div>
+            <div class="mock-card-value" style="font-size:22px;color:#2ECC8A">$1,240</div>
+            <div class="mock-card-sub">18 days remaining</div>
+          </div>
+          <div class="mock-card" style="flex:1">
+            <div class="mock-card-label">Bills Due</div>
+            <div class="mock-card-value" style="font-size:22px;color:#F5A623">3</div>
+            <div class="mock-card-sub">Next: Netflix in 2d</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <div class="mock-pill">👫 Sharing with Brenna</div>
+          <div class="mock-pill orange">📅 Rent due in 5 days</div>
+          <div class="mock-pill">✓ Budget on track</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <section class="section" id="pricing" style="text-align:center">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Simple, honest pricing.</h2>
+    <p class="section-sub" style="margin:0 auto 60px">Start free for 3 months. No credit card. No hidden fees. No auto-charge.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-plan">Trial</div>
+        <div class="pricing-price">$0</div>
+        <div class="pricing-period">for 3 months</div>
+        <ul class="pricing-features">
+          <li>Full access to all features</li>
+          <li>Partner sharing</li>
+          <li>50 receipt images</li>
+          <li>All 5 financial tools</li>
+        </ul>
+        <a href="https://merq-vault.vercel.app/signup" class="pricing-btn">Start free →</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-plan">Pro</div>
+        <div class="pricing-price">$59</div>
+        <div class="pricing-period">per year · $4.92/mo</div>
+        <ul class="pricing-features">
+          <li>Everything in Trial</li>
+          <li>Unlimited receipt storage</li>
+          <li>Priority support</li>
+          <li>New features first</li>
+        </ul>
+        <a href="https://merq-vault.vercel.app/signup" class="pricing-btn">Get Pro →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-section">
+    <div class="cta-bg"></div>
+    <h2 style="position:relative">Stop guessing.<br>Start knowing.</h2>
+    <p style="position:relative">Your financial life is waiting to make sense.</p>
+    <div style="position:relative;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="https://merq-vault.vercel.app/signup" class="btn-primary" style="font-size:17px;padding:18px 44px">Start free — 3 months on us →</a>
+    </div>
+    <p class="trial-note" style="position:relative;margin-top:20px">No credit card · No auto-charge · Cancel anytime</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Merq<span>Vault</span></div>
+    <div class="footer-copy">© 2026 Merq Vault. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="https://merq-vault.vercel.app/signup">Sign up</a>
+      <a href="https://merq-vault.vercel.app/login">Log in</a>
+      <a href="/cdn-cgi/l/email-protection#d8b0bdb4b4b798bfbdacb5bdaaa9f6bbb7b5">Contact</a>
