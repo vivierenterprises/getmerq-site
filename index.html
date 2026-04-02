@@ -561,6 +561,118 @@
     }
     .footer-links a:hover { color: var(--white); }
 
+    /* ── BILLING TOGGLE ── */
+    .billing-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+    .billing-label {
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .save-badge {
+      background: var(--green);
+      color: var(--green-dark);
+      padding: 3px 8px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .toggle-track {
+      width: 52px;
+      height: 28px;
+      background: var(--green);
+      border-radius: 14px;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.2s;
+    }
+    .toggle-thumb {
+      width: 22px;
+      height: 22px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      transition: left 0.2s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .toggle-thumb.annual { left: 27px; }
+
+    /* ── APP DOWNLOAD ── */
+    .app-download {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+    .qr-wrap { text-align: center; }
+    .qr-code {
+      width: 180px;
+      height: 180px;
+      background: white;
+      border-radius: 16px;
+      padding: 12px;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .qr-code canvas, .qr-code img { width: 100%; height: 100%; }
+    .qr-label {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .app-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      text-align: left;
+      max-width: 340px;
+    }
+    .app-step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .app-step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(46,204,138,0.15);
+      border: 1px solid rgba(46,204,138,0.3);
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .app-step-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-top: 4px;
+    }
+    .app-step-text strong {
+      font-size: 15px;
+      color: white;
+      font-weight: 600;
+    }
+    .app-step-text span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
@@ -721,12 +833,22 @@
   <section class="section" id="pricing" style="text-align:center">
     <div class="section-label">Pricing</div>
     <h2 class="section-title">Simple, honest pricing.</h2>
-    <p class="section-sub" style="margin:0 auto 60px">Start free for 3 months. No credit card. No hidden fees. No auto-charge.</p>
+    <p class="section-sub" style="margin:0 auto 40px">Start free for 3 months. No credit card. No hidden fees. No auto-charge.</p>
+
+    <!-- BILLING TOGGLE -->
+    <div class="billing-toggle">
+      <span class="billing-label" id="label-monthly">Monthly</span>
+      <div class="toggle-track" onclick="toggleBilling()">
+        <div class="toggle-thumb" id="toggle-thumb"></div>
+      </div>
+      <span class="billing-label" id="label-annual">Annual <span class="save-badge">Save 30%</span></span>
+    </div>
+
     <div class="pricing-grid">
       <div class="pricing-card">
         <div class="pricing-plan">Trial</div>
         <div class="pricing-price">$0</div>
-        <div class="pricing-period">for 3 months</div>
+        <div class="pricing-period">for 3 months · then choose a plan</div>
         <ul class="pricing-features">
           <li>Full access to all features</li>
           <li>Partner sharing</li>
@@ -737,8 +859,8 @@
       </div>
       <div class="pricing-card featured">
         <div class="pricing-plan">Pro</div>
-        <div class="pricing-price">$59</div>
-        <div class="pricing-period">per year · $4.92/mo</div>
+        <div class="pricing-price" id="pro-price">$59</div>
+        <div class="pricing-period" id="pro-period">per year · $4.92/mo</div>
         <ul class="pricing-features">
           <li>Everything in Trial</li>
           <li>Unlimited receipt storage</li>
@@ -746,6 +868,42 @@
           <li>New features first</li>
         </ul>
         <a href="https://merq-vault.vercel.app/signup" class="pricing-btn">Get Pro →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GET THE APP -->
+  <section class="section" id="get-app" style="text-align:center">
+    <div class="section-label">Get the app</div>
+    <h2 class="section-title">Always in your pocket.</h2>
+    <p class="section-sub" style="margin:0 auto 48px">Scan the QR code with your phone camera to open Merq Vault instantly. Then add it to your home screen for a native app experience — no App Store needed.</p>
+    <div class="app-download">
+      <div class="qr-wrap">
+        <div class="qr-code" id="qr-code"></div>
+        <div class="qr-label">Scan to open on your phone</div>
+      </div>
+      <div class="app-steps">
+        <div class="app-step">
+          <div class="app-step-num">1</div>
+          <div class="app-step-text">
+            <strong>Scan the QR code</strong>
+            <span>Opens Merq Vault in your phone browser</span>
+          </div>
+        </div>
+        <div class="app-step">
+          <div class="app-step-num">2</div>
+          <div class="app-step-text">
+            <strong>On iPhone:</strong> Tap Share → Add to Home Screen
+            <span>On Android: Tap Menu → Add to Home Screen</span>
+          </div>
+        </div>
+        <div class="app-step">
+          <div class="app-step-num">3</div>
+          <div class="app-step-text">
+            <strong>Merq Vault is on your home screen</strong>
+            <span>Full screen, no browser bar — just like a real app</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -769,3 +927,41 @@
       <a href="https://merq-vault.vercel.app/signup">Sign up</a>
       <a href="https://merq-vault.vercel.app/login">Log in</a>
       <a href="/cdn-cgi/l/email-protection#d8b0bdb4b4b798bfbdacb5bdaaa9f6bbb7b5">Contact</a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    // Billing toggle
+    let isAnnual = true;
+    function toggleBilling() {
+      isAnnual = !isAnnual;
+      const thumb = document.getElementById('toggle-thumb');
+      const price = document.getElementById('pro-price');
+      const period = document.getElementById('pro-period');
+      if (isAnnual) {
+        thumb.classList.add('annual');
+        price.textContent = '$59';
+        period.textContent = 'per year · $4.92/mo';
+      } else {
+        thumb.classList.remove('annual');
+        price.textContent = '$7';
+        period.textContent = 'per month · $84/yr';
+      }
+    }
+    document.getElementById('toggle-thumb').classList.add('annual');
+
+    // QR Code
+    window.addEventListener('load', function() {
+      new QRCode(document.getElementById('qr-code'), {
+        text: 'https://merq-vault.vercel.app/signup',
+        width: 156,
+        height: 156,
+        colorDark: '#1B2B3A',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    });
+  </script>
+</body>
+</html>
