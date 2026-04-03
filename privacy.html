@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Merq Vault</title>
+  <meta name="description" content="Privacy Policy for Merq Vault by Merq Software." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #2ECC8A;
+      --navy: #1B2B3A;
+      --muted: #8899AA;
+      --bg: #F7F9FC;
+      --white: #ffffff;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--navy);
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 22px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .logo-merq { color: #fff; }
+    .logo-vault { color: var(--green); }
+    .nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: #fff; }
+
+    /* HERO */
+    .hero {
+      background: var(--navy);
+      padding: 60px 40px 50px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .hero h1 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    /* CONTENT */
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-top: 40px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--green);
+      display: inline-block;
+    }
+    h2:first-of-type { margin-top: 0; }
+    p { margin-bottom: 16px; color: #2D4255; font-size: 15px; }
+    ul {
+      margin: 0 0 16px 20px;
+      color: #2D4255;
+      font-size: 15px;
+    }
+    ul li { margin-bottom: 8px; }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .highlight {
+      background: #E8F7F1;
+      border-left: 4px solid var(--green);
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 20px;
+      font-size: 15px;
+      color: #0F6E56;
+      font-weight: 500;
+    }
+    .last-updated {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      padding: 30px 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: #fff; }
+    .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 12px; }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      .hero { padding: 40px 20px 36px; }
+      .hero h1 { font-size: 26px; }
+      .content { padding: 40px 20px 60px; }
+      footer { padding: 24px 20px; }
+      .footer-links { flex-wrap: wrap; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="logo">
+      <span class="logo-merq">Merq</span><span class="logo-vault"> Vault</span>
+    </a>
+    <a href="/" class="nav-link">← Back to home</a>
+  </nav>
+
+  <div class="hero">
+    <h1>Privacy Policy</h1>
+    <p>How Merq Vault collects, uses, and protects your information</p>
+  </div>
+
+  <div class="content">
+    <p class="last-updated">Last updated: April 2026</p>
+
+    <div class="highlight">
+      Merq Vault is built on a simple promise: we will never sell your data, never show you ads, and never use your financial information for anything other than making the app work for you.
+    </div>
+
+    <h2>Who We Are</h2>
+    <p>Merq Vault is a personal finance application operated by <strong>Merq Software</strong>, a sole proprietorship based in Texas, United States. References to "we," "us," or "our" in this policy refer to Merq Software.</p>
+    <p>You can reach us at <a href="mailto:legal@getmerq.com">legal@getmerq.com</a>.</p>
+
+    <h2>Information We Collect</h2>
+    <p>We collect only what's necessary to make the app work:</p>
+    <ul>
+      <li><strong>Account information</strong> — your name, email address, and password (stored securely via Supabase Auth)</li>
+      <li><strong>Financial data you enter</strong> — budgets, transactions, bills, debts, net worth accounts, and savings goals that you manually input</li>
+      <li><strong>Currency and language preferences</strong> — to display the app in your preferred format</li>
+      <li><strong>Receipt images</strong> — only if you choose to upload them for business or charitable transactions</li>
+      <li><strong>Partner connection data</strong> — if you invite a partner to share finances, we store the connection between your accounts</li>
+    </ul>
+    <p>We do <strong>not</strong> connect to your bank accounts, access your financial institutions, or collect any data automatically beyond what you enter.</p>
+
+    <h2>How We Use Your Information</h2>
+    <ul>
+      <li>To provide and operate the Merq Vault application</li>
+      <li>To send transactional emails (account confirmation, partner invites) from noreply@getmerq.com</li>
+      <li>To display your financial data back to you and your connected partner</li>
+      <li>To generate in-app summaries and spending observations based on your data</li>
+    </ul>
+    <p>We do <strong>not</strong> use your data for advertising, marketing to third parties, or any purpose beyond operating the service you signed up for.</p>
+
+    <h2>Monthly Summaries and Spending Observations</h2>
+    <p>Merq Vault may display monthly summaries of your spending activity. These summaries are <strong>observations only</strong> — they report what happened with your money based on data you entered. They are not financial advice, investment recommendations, or professional guidance of any kind. Always consult a qualified financial professional for advice specific to your situation.</p>
+
+    <h2>Data Storage and Security</h2>
+    <p>Your data is stored securely using <strong>Supabase</strong>, a trusted database platform with row-level security enabled. This means your data is isolated from other users and accessible only to you (and your connected partner, if you've set one up).</p>
+    <p>Receipt images are stored in Supabase Storage with a 5MB limit per file.</p>
+    <p>While we take reasonable steps to protect your data, no method of transmission or storage is 100% secure. We encourage you to use a strong, unique password for your account.</p>
+
+    <h2>Data Sharing</h2>
+    <p>We do not sell, rent, or share your personal information with third parties for their own purposes. We work with the following service providers who process data only as needed to operate the service:</p>
+    <ul>
+      <li><strong>Supabase</strong> — database and authentication</li>
+      <li><strong>Resend</strong> — transactional email delivery</li>
+      <li><strong>Vercel</strong> — application hosting</li>
+    </ul>
+    <p>Each of these providers operates under their own privacy policies and data processing agreements.</p>
+
+    <h2>Partner Data Sharing</h2>
+    <p>If you invite a partner to share finances, they will have access to your combined budget, transactions, bills, net worth accounts, debts, and savings goals. You can revoke this access at any time from Settings. Upon revocation, shared access ends immediately.</p>
+
+    <h2>Data Retention and Deletion</h2>
+    <p>Your data is retained for as long as your account is active. If you wish to delete your account and all associated data, contact us at <a href="mailto:legal@getmerq.com">legal@getmerq.com</a> and we will process your request within 30 days.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>Merq Vault is not intended for use by anyone under the age of 18. We do not knowingly collect personal information from minors. If you believe a minor has created an account, please contact us and we will remove it promptly.</p>
+
+    <h2>Your Rights</h2>
+    <p>You have the right to:</p>
+    <ul>
+      <li>Access the personal information we hold about you</li>
+      <li>Correct inaccurate information</li>
+      <li>Request deletion of your data</li>
+      <li>Export your transaction data (via the CSV export feature in the app)</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at <a href="mailto:legal@getmerq.com">legal@getmerq.com</a>.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date at the top of this page. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+
+    <h2>Contact Us</h2>
+    <p>Questions about this Privacy Policy? Reach us at <a href="mailto:legal@getmerq.com">legal@getmerq.com</a>.</p>
+    <p>Merq Software<br>Texas, United States</p>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="mailto:hello@getmerq.com">hello@getmerq.com</a>
+    </div>
+    <p>© 2026 Merq Software. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
