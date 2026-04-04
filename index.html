@@ -521,7 +521,9 @@
     </p>
     <div class="app-download">
       <div class="qr-wrap">
-        <div class="qr-code" id="qr-code"></div>
+        <div class="qr-code">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=156x156&data=https://merqvault.com/signup&color=1B2B3A&bgcolor=ffffff" width="156" height="156" alt="QR code to open Merq Vault" style="border-radius:8px" />
+        </div>
         <div class="qr-label">Scan to open on your phone</div>
       </div>
       <div class="app-steps">
@@ -605,7 +607,6 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script>
     let isAnnual = true;
     function toggleBilling() {
@@ -623,8 +624,6 @@
         period.textContent = 'per month · $84/yr';
       }
     }
-
-    window.addEventListener('load', function() {
-      new QRCode(document.getElementById('qr-code'), {
-        text: 'https://merqvault.com/signup',
-        width: 156, height: 
+  </script>
+</body>
+</html>
