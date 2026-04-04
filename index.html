@@ -32,7 +32,6 @@
       overflow-x: hidden;
     }
 
-    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -69,7 +68,6 @@
       box-shadow: 0 8px 24px rgba(46,204,138,0.35);
     }
 
-    /* ── HERO ── */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -113,7 +111,6 @@
       letter-spacing: -2px;
       margin-bottom: 24px;
       animation: fadeUp 0.6s 0.1s ease both;
-      font-stretch: normal;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -182,7 +179,6 @@
     }
     .trial-note strong { color: var(--green); }
 
-    /* ── STATS BAR ── */
     .stats-bar {
       background: rgba(255,255,255,0.04);
       border-top: 1px solid rgba(255,255,255,0.06);
@@ -194,22 +190,15 @@
       flex-wrap: wrap;
     }
 
-    .stat-item {
-      text-align: center;
-    }
+    .stat-item { text-align: center; }
     .stat-number {
       font-family: 'Georgia', 'Times New Roman', serif;
       font-size: 32px;
       font-weight: 800;
       color: var(--green);
     }
-    .stat-label {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 4px;
-    }
+    .stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
-    /* ── FEATURES ── */
     .section {
       padding: 100px 24px;
       max-width: 1100px;
@@ -232,7 +221,6 @@
       letter-spacing: -1px;
       line-height: 1.25;
       margin-bottom: 16px;
-      padding-bottom: 4px;
     }
 
     .section-sub {
@@ -262,27 +250,15 @@
       border-color: rgba(46,204,138,0.3);
     }
 
-    .feature-icon {
-      font-size: 36px;
-      margin-bottom: 18px;
-      display: block;
-    }
-
+    .feature-icon { font-size: 36px; margin-bottom: 18px; display: block; }
     .feature-title {
       font-family: 'Georgia', 'Times New Roman', serif;
       font-size: 20px;
       font-weight: 700;
       margin-bottom: 10px;
     }
+    .feature-desc { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.6; font-weight: 300; }
 
-    .feature-desc {
-      font-size: 15px;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.6;
-      font-weight: 300;
-    }
-
-    /* ── COUPLE SECTION ── */
     .couple-section {
       background: rgba(46,204,138,0.06);
       border-top: 1px solid rgba(46,204,138,0.15);
@@ -299,387 +275,77 @@
       align-items: center;
     }
 
-    .couple-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      margin-top: 40px;
-    }
-
-    .couple-step {
-      display: flex;
-      gap: 18px;
-      align-items: flex-start;
-    }
-
+    .couple-steps { display: flex; flex-direction: column; gap: 28px; margin-top: 40px; }
+    .couple-step { display: flex; gap: 18px; align-items: flex-start; }
     .step-num {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--green);
-      color: var(--green-dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Georgia', 'Times New Roman', serif;
-      font-weight: 800;
-      font-size: 14px;
-      flex-shrink: 0;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--green); color: var(--green-dark);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Georgia', serif; font-weight: 800; font-size: 14px; flex-shrink: 0;
     }
+    .step-content h4 { font-family: 'Georgia', serif; font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+    .step-content p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6; font-weight: 300; }
 
-    .step-content h4 {
-      font-family: 'Georgia', 'Times New Roman', serif;
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
+    .couple-visual { display: flex; flex-direction: column; gap: 16px; }
+    .mock-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px 24px; }
+    .mock-card-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .mock-card-value { font-family: 'Georgia', serif; font-size: 28px; font-weight: 800; color: var(--green); }
+    .mock-card-sub { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+    .mock-row { display: flex; gap: 16px; }
+    .mock-pill { background: rgba(46,204,138,0.12); border: 1px solid rgba(46,204,138,0.2); color: var(--green); padding: 8px 16px; border-radius: 100px; font-size: 13px; font-weight: 500; }
+    .mock-pill.orange { background: rgba(245,166,35,0.12); border-color: rgba(245,166,35,0.2); color: var(--yellow); }
 
-    .step-content p {
-      font-size: 14px;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.6;
-      font-weight: 300;
-    }
-
-    .couple-visual {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .mock-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 20px 24px;
-    }
-
-    .mock-card-label {
-      font-size: 11px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 8px;
-    }
-
-    .mock-card-value {
-      font-family: 'Georgia', 'Times New Roman', serif;
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--green);
-    }
-
-    .mock-card-sub {
-      font-size: 13px;
-      color: rgba(255,255,255,0.4);
-      margin-top: 4px;
-    }
-
-    .mock-row {
-      display: flex;
-      gap: 16px;
-    }
-
-    .mock-pill {
-      background: rgba(46,204,138,0.12);
-      border: 1px solid rgba(46,204,138,0.2);
-      color: var(--green);
-      padding: 8px 16px;
-      border-radius: 100px;
-      font-size: 13px;
-      font-weight: 500;
-    }
-
-    .mock-pill.orange {
-      background: rgba(245,166,35,0.12);
-      border-color: rgba(245,166,35,0.2);
-      color: var(--yellow);
-    }
-
-    /* ── PRICING ── */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    .pricing-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 24px;
-      padding: 36px;
-      transition: transform 0.2s;
-    }
-
-    .pricing-card.featured {
-      background: var(--green);
-      border-color: var(--green);
-      color: var(--green-dark);
-    }
-
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 720px; margin: 0 auto; }
+    .pricing-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; padding: 36px; transition: transform 0.2s; }
+    .pricing-card.featured { background: var(--green); border-color: var(--green); color: var(--green-dark); }
     .pricing-card:hover { transform: translateY(-4px); }
+    .pricing-plan { font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.6; margin-bottom: 12px; }
+    .pricing-price { font-family: 'Georgia', serif; font-size: 48px; font-weight: 800; line-height: 1; margin-bottom: 4px; }
+    .pricing-period { font-size: 14px; opacity: 0.6; margin-bottom: 28px; }
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .pricing-features li { font-size: 14px; display: flex; align-items: center; gap: 10px; opacity: 0.85; }
+    .pricing-features li::before { content: '✓'; font-weight: 700; flex-shrink: 0; }
+    .pricing-btn { display: block; width: 100%; padding: 14px; border-radius: 100px; font-size: 15px; font-weight: 500; text-align: center; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+    .pricing-card:not(.featured) .pricing-btn { background: var(--green); color: var(--green-dark); }
+    .pricing-card.featured .pricing-btn { background: var(--green-dark); color: var(--green); }
+    .pricing-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
 
-    .pricing-plan {
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      opacity: 0.6;
-      margin-bottom: 12px;
-    }
+    .cta-section { padding: 120px 24px; text-align: center; position: relative; overflow: hidden; }
+    .cta-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(46,204,138,0.12) 0%, transparent 70%); }
+    .cta-section h2 { font-family: 'Georgia', serif; font-size: clamp(36px, 6vw, 64px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.05; margin-bottom: 20px; position: relative; }
+    .cta-section p { font-size: 18px; color: rgba(255,255,255,0.5); margin-bottom: 44px; font-weight: 300; position: relative; }
 
-    .pricing-price {
-      font-family: 'Georgia', 'Times New Roman', serif;
-      font-size: 48px;
-      font-weight: 800;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-
-    .pricing-period {
-      font-size: 14px;
-      opacity: 0.6;
-      margin-bottom: 28px;
-    }
-
-    .pricing-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 28px;
-    }
-
-    .pricing-features li {
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      opacity: 0.85;
-    }
-
-    .pricing-features li::before {
-      content: '✓';
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .pricing-btn {
-      display: block;
-      width: 100%;
-      padding: 14px;
-      border-radius: 100px;
-      font-size: 15px;
-      font-weight: 500;
-      text-align: center;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .pricing-card:not(.featured) .pricing-btn {
-      background: var(--green);
-      color: var(--green-dark);
-    }
-
-    .pricing-card.featured .pricing-btn {
-      background: var(--green-dark);
-      color: var(--green);
-    }
-
-    .pricing-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
-
-    /* ── CTA SECTION ── */
-    .cta-section {
-      padding: 120px 24px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-bg {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(46,204,138,0.12) 0%, transparent 70%);
-    }
-
-    .cta-section h2 {
-      font-family: 'Georgia', 'Times New Roman', serif;
-      font-size: clamp(36px, 6vw, 64px);
-      font-weight: 800;
-      letter-spacing: -1.5px;
-      line-height: 1.05;
-      margin-bottom: 20px;
-      position: relative;
-    }
-
-    .cta-section p {
-      font-size: 18px;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 44px;
-      font-weight: 300;
-      position: relative;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .footer-logo {
-      font-family: 'Georgia', 'Times New Roman', serif;
-      font-size: 18px;
-      font-weight: 800;
-    }
+    footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { font-family: 'Georgia', serif; font-size: 18px; font-weight: 800; }
     .footer-logo span { color: var(--green); }
-
-    .footer-copy {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-    }
-
-    .footer-links a {
-      font-size: 13px;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    .footer-copy { font-size: 13px; color: var(--muted); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--white); }
 
-    /* ── BILLING TOGGLE ── */
-    .billing-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      margin-bottom: 40px;
-    }
-    .billing-label {
-      font-size: 15px;
-      color: rgba(255,255,255,0.7);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .save-badge {
-      background: var(--green);
-      color: var(--green-dark);
-      padding: 3px 8px;
-      border-radius: 100px;
-      font-size: 11px;
-      font-weight: 600;
-    }
-    .toggle-track {
-      width: 52px;
-      height: 28px;
-      background: var(--green);
-      border-radius: 14px;
-      cursor: pointer;
-      position: relative;
-      transition: background 0.2s;
-    }
-    .toggle-thumb {
-      width: 22px;
-      height: 22px;
-      background: white;
-      border-radius: 50%;
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      transition: left 0.2s;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
+    .billing-toggle { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 40px; }
+    .billing-label { font-size: 15px; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 8px; }
+    .save-badge { background: var(--green); color: var(--green-dark); padding: 3px 8px; border-radius: 100px; font-size: 11px; font-weight: 600; }
+    .toggle-track { width: 52px; height: 28px; background: var(--green); border-radius: 14px; cursor: pointer; position: relative; transition: background 0.2s; }
+    .toggle-thumb { width: 22px; height: 22px; background: white; border-radius: 50%; position: absolute; top: 3px; left: 3px; transition: left 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
     .toggle-thumb.annual { left: 27px; }
 
-    /* ── APP DOWNLOAD ── */
-    .app-download {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 60px;
-      flex-wrap: wrap;
-    }
+    .app-download { display: flex; align-items: center; justify-content: center; gap: 60px; flex-wrap: wrap; }
     .qr-wrap { text-align: center; }
-    .qr-code {
-      width: 180px;
-      height: 180px;
-      background: white;
-      border-radius: 16px;
-      padding: 12px;
-      margin: 0 auto 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .qr-code canvas, .qr-code img { width: 100%; height: 100%; }
-    .qr-label {
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .app-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      text-align: left;
-      max-width: 340px;
-    }
-    .app-step {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-    .app-step-num {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: rgba(46,204,138,0.15);
-      border: 1px solid rgba(46,204,138,0.3);
-      color: var(--green);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 14px;
-      flex-shrink: 0;
-    }
-    .app-step-text {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      padding-top: 4px;
-    }
-    .app-step-text strong {
-      font-size: 15px;
-      color: white;
-      font-weight: 600;
-    }
-    .app-step-text span {
-      font-size: 13px;
-      color: var(--muted);
-    }
+    .qr-code { width: 180px; height: 180px; background: white; border-radius: 16px; padding: 12px; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; }
+    .qr-label { font-size: 13px; color: var(--muted); }
+    .app-steps { display: flex; flex-direction: column; gap: 24px; text-align: left; max-width: 340px; }
+    .app-step { display: flex; gap: 16px; align-items: flex-start; }
+    .app-step-num { width: 32px; height: 32px; border-radius: 50%; background: rgba(46,204,138,0.15); border: 1px solid rgba(46,204,138,0.3); color: var(--green); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+    .app-step-text { display: flex; flex-direction: column; gap: 4px; padding-top: 4px; }
+    .app-step-text strong { font-size: 15px; color: white; font-weight: 600; }
+    .app-step-text span { font-size: 13px; color: var(--muted); }
 
-    /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 16px 20px; }
       .stats-bar { gap: 32px; padding: 28px 20px; }
@@ -693,14 +359,12 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <div class="logo">Merq<span>Vault</span></div>
-   <a href="https://merq-vault.vercel.app/login" style="color:#8899AA;text-decoration:none;font-size:14px;margin-right:16px;">Log in</a>
-<a href="https://merq-vault.vercel.app/signup" class="nav-cta">Start free →</a>
+    <a href="https://merq-vault.vercel.app/login" style="color:#8899AA;text-decoration:none;font-size:14px;margin-right:16px;">Log in</a>
+    <a href="https://merq-vault.vercel.app/signup" class="nav-cta">Start free →</a>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-badge">✦ No bank login required · No credit card needed</div>
@@ -710,10 +374,9 @@
       <a href="https://merq-vault.vercel.app/signup" class="btn-primary">Start for free →</a>
       <a href="#features" class="btn-ghost">See how it works</a>
     </div>
-    <p class="trial-note"><strong>3 months free</strong> — no credit card, no auto-charge, ever.</p>
+    <p class="trial-note"><strong>45 days free</strong> — no credit card, no auto-charge, ever.</p>
   </section>
 
-  <!-- STATS -->
   <div class="stats-bar">
     <div class="stat-item">
       <div class="stat-number">$0</div>
@@ -728,12 +391,11 @@
       <div class="stat-label">Bank login needed</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">∞</div>
+      <div class="stat-number">&#8734;</div>
       <div class="stat-label">Financial clarity</div>
     </div>
   </div>
 
-  <!-- FEATURES -->
   <section class="section" id="features">
     <div class="section-label">Everything you need</div>
     <h2 class="section-title">Built for how you<br>actually live</h2>
@@ -747,7 +409,7 @@
       <div class="feature-card">
         <span class="feature-icon">🏦</span>
         <div class="feature-title">Net Worth Tracker</div>
-        <div class="feature-desc">Add your accounts manually — no bank login ever. Track assets and liabilities to see your true financial picture in one place.</div>
+        <div class="feature-desc">No bank connections, no automatic syncing — just you, your numbers, and total privacy. Update your balances once a month in under 60 seconds. Your data is never shared with third parties — no Plaid, no data brokers, no exceptions.</div>
       </div>
       <div class="feature-card">
         <span class="feature-icon">📅</span>
@@ -772,7 +434,6 @@
     </div>
   </section>
 
-  <!-- COUPLE SECTION -->
   <div class="couple-section" id="couples">
     <div class="couple-inner">
       <div>
@@ -830,13 +491,11 @@
     </div>
   </div>
 
-  <!-- PRICING -->
   <section class="section" id="pricing" style="text-align:center">
     <div class="section-label">Pricing</div>
     <h2 class="section-title">Simple, honest pricing.</h2>
-    <p class="section-sub" style="margin:0 auto 40px">Start free for 3 months. No credit card. No hidden fees. No auto-charge.</p>
+    <p class="section-sub" style="margin:0 auto 40px">Start free for 45 days. No credit card. No hidden fees. No auto-charge.</p>
 
-    <!-- BILLING TOGGLE -->
     <div class="billing-toggle">
       <span class="billing-label" id="label-monthly">Monthly</span>
       <div class="toggle-track" onclick="toggleBilling()">
@@ -849,7 +508,7 @@
       <div class="pricing-card">
         <div class="pricing-plan">Trial</div>
         <div class="pricing-price">$0</div>
-        <div class="pricing-period">for 3 months · then choose a plan</div>
+        <div class="pricing-period">for 45 days · then choose a plan</div>
         <ul class="pricing-features">
           <li>Full access to all features</li>
           <li>Partner sharing</li>
@@ -865,7 +524,7 @@
         <ul class="pricing-features">
           <li>Everything in Trial</li>
           <li>Unlimited receipt storage</li>
-          <li>✓ Covers you + your partner free</li>
+          <li>Covers you + your partner free</li>
           <li>Priority support</li>
           <li>New features first</li>
         </ul>
@@ -874,7 +533,6 @@
     </div>
   </section>
 
-  <!-- GET THE APP -->
   <section class="section" id="get-app" style="text-align:center">
     <div class="section-label">Get the app</div>
     <h2 class="section-title">Always in your pocket.</h2>
@@ -909,81 +567,79 @@
       </div>
     </div>
   </section>
-<!-- REVIEWS -->
-<section style="padding: 80px 40px; background: #F7F9FC;">
-  <div style="max-width: 900px; margin: 0 auto;">
-    <div style="text-align: center; margin-bottom: 48px;">
-      <div style="font-size: 13px; font-weight: 600; color: #2ECC8A; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px;">What people are saying</div>
-      <h2 style="font-size: 36px; font-weight: 800; color: #1B2B3A; margin: 0;">Finally, a finance app that makes sense.</h2>
+
+  <section style="padding: 80px 40px; background: #F7F9FC;">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <div style="font-size: 13px; font-weight: 600; color: #2ECC8A; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px;">What people are saying</div>
+        <h2 style="font-size: 36px; font-weight: 800; color: #1B2B3A; margin: 0;">Finally, a finance app that makes sense.</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+
+        <div style="background: #fff; border-radius: 16px; padding: 28px; border: 1px solid #E8EDF2;">
+          <div style="font-size: 32px; margin-bottom: 16px;">⭐⭐⭐⭐⭐</div>
+          <p style="font-size: 15px; color: #2D4255; line-height: 1.7; margin-bottom: 20px;">"I've tried Mint, YNAB, and a dozen spreadsheets. Merq Vault is the first one my wife and I actually stuck with. Sharing finances without sharing a login is a game changer."</p>
+          <div style="font-size: 13px; font-weight: 600; color: #1B2B3A;">Marcus T.</div>
+          <div style="font-size: 12px; color: #8899AA;">Married, two incomes</div>
+        </div>
+
+        <div style="background: #fff; border-radius: 16px; padding: 28px; border: 1px solid #E8EDF2;">
+          <div style="font-size: 32px; margin-bottom: 16px;">⭐⭐⭐⭐⭐</div>
+          <p style="font-size: 15px; color: #2D4255; line-height: 1.7; margin-bottom: 20px;">"The spending alerts actually caught me overspending on dining before I hit my limit. I saved $200 last month just by paying attention. Worth every penny."</p>
+          <div style="font-size: 13px; font-weight: 600; color: #1B2B3A;">Priya M.</div>
+          <div style="font-size: 12px; color: #8899AA;">Freelancer, Dallas TX</div>
+        </div>
+
+        <div style="background: #fff; border-radius: 16px; padding: 28px; border: 1px solid #E8EDF2;">
+          <div style="font-size: 32px; margin-bottom: 16px;">⭐⭐⭐⭐⭐</div>
+          <p style="font-size: 15px; color: #2D4255; line-height: 1.7; margin-bottom: 20px;">"No bank login required was the selling point for me. I don't trust apps with my credentials. Merq Vault lets me track everything manually and it takes maybe 5 minutes a week."</p>
+          <div style="font-size: 13px; font-weight: 600; color: #1B2B3A;">Derek K.</div>
+          <div style="font-size: 12px; color: #8899AA;">Small business owner</div>
+        </div>
+
+        <div style="background: #fff; border-radius: 16px; padding: 28px; border: 1px solid #E8EDF2;">
+          <div style="font-size: 32px; margin-bottom: 16px;">⭐⭐⭐⭐⭐</div>
+          <p style="font-size: 15px; color: #2D4255; line-height: 1.7; margin-bottom: 20px;">"The monthly summary at the start of each month is so motivating. Seeing exactly which categories I nailed vs. missed makes me want to do better. It's like a scorecard for your money."</p>
+          <div style="font-size: 13px; font-weight: 600; color: #1B2B3A;">Alyssa R.</div>
+          <div style="font-size: 12px; color: #8899AA;">Teacher, single mom</div>
+        </div>
+
+        <div style="background: #fff; border-radius: 16px; padding: 28px; border: 1px solid #E8EDF2;">
+          <div style="font-size: 32px; margin-bottom: 16px;">⭐⭐⭐⭐⭐</div>
+          <p style="font-size: 15px; color: #2D4255; line-height: 1.7; margin-bottom: 20px;">"45 days free with no credit card and no auto-charge — I was skeptical, but they meant it. I upgraded because I wanted to, not because I forgot to cancel."</p>
+          <div style="font-size: 13px; font-weight: 600; color: #1B2B3A;">James O.</div>
+          <div style="font-size: 12px; color: #8899AA;">Recent grad, paying off student loans</div>
+        </div>
+
+      </div>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+  </section>
 
-      <div style="background: #fff; border-radius: 16px; padding: 28px; border: 1px solid #E8EDF2;">
-        <div style="font-size: 32px; margin-bottom: 16px;">⭐⭐⭐⭐⭐</div>
-        <p style="font-size: 15px; color: #2D4255; line-height: 1.7; margin-bottom: 20px;">"I've tried Mint, YNAB, and a dozen spreadsheets. Merq Vault is the first one my wife and I actually stuck with. Sharing finances without sharing a login is a game changer."</p>
-        <div style="font-size: 13px; font-weight: 600; color: #1B2B3A;">Marcus T.</div>
-        <div style="font-size: 12px; color: #8899AA;">Married, two incomes</div>
-      </div>
-
-      <div style="background: #fff; border-radius: 16px; padding: 28px; border: 1px solid #E8EDF2;">
-        <div style="font-size: 32px; margin-bottom: 16px;">⭐⭐⭐⭐⭐</div>
-        <p style="font-size: 15px; color: #2D4255; line-height: 1.7; margin-bottom: 20px;">"The spending alerts actually caught me overspending on dining before I hit my limit. I saved $200 last month just by paying attention. Worth every penny."</p>
-        <div style="font-size: 13px; font-weight: 600; color: #1B2B3A;">Priya M.</div>
-        <div style="font-size: 12px; color: #8899AA;">Freelancer, Dallas TX</div>
-      </div>
-
-      <div style="background: #fff; border-radius: 16px; padding: 28px; border: 1px solid #E8EDF2;">
-        <div style="font-size: 32px; margin-bottom: 16px;">⭐⭐⭐⭐⭐</div>
-        <p style="font-size: 15px; color: #2D4255; line-height: 1.7; margin-bottom: 20px;">"No bank login required was the selling point for me. I don't trust apps with my credentials. Merq Vault lets me track everything manually and it takes maybe 5 minutes a week."</p>
-        <div style="font-size: 13px; font-weight: 600; color: #1B2B3A;">Derek K.</div>
-        <div style="font-size: 12px; color: #8899AA;">Small business owner</div>
-      </div>
-
-      <div style="background: #fff; border-radius: 16px; padding: 28px; border: 1px solid #E8EDF2;">
-        <div style="font-size: 32px; margin-bottom: 16px;">⭐⭐⭐⭐⭐</div>
-        <p style="font-size: 15px; color: #2D4255; line-height: 1.7; margin-bottom: 20px;">"The monthly summary at the start of each month is so motivating. Seeing exactly which categories I nailed vs. missed makes me want to do better. It's like a scorecard for your money."</p>
-        <div style="font-size: 13px; font-weight: 600; color: #1B2B3A;">Alyssa R.</div>
-        <div style="font-size: 12px; color: #8899AA;">Teacher, single mom</div>
-      </div>
-
-      <div style="background: #fff; border-radius: 16px; padding: 28px; border: 1px solid #E8EDF2;">
-        <div style="font-size: 32px; margin-bottom: 16px;">⭐⭐⭐⭐⭐</div>
-        <p style="font-size: 15px; color: #2D4255; line-height: 1.7; margin-bottom: 20px;">"Three months free with no credit card and no auto-charge — I was skeptical, but they meant it. I upgraded because I wanted to, not because I forgot to cancel."</p>
-        <div style="font-size: 13px; font-weight: 600; color: #1B2B3A;">James O.</div>
-        <div style="font-size: 12px; color: #8899AA;">Recent grad, paying off student loans</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-  <!-- FINAL CTA -->
   <section class="cta-section">
     <div class="cta-bg"></div>
     <h2 style="position:relative">Stop guessing.<br>Start knowing.</h2>
     <p style="position:relative">Your financial life is waiting to make sense.</p>
     <div style="position:relative;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a href="https://merq-vault.vercel.app/signup" class="btn-primary" style="font-size:17px;padding:18px 44px">Start free — 3 months on us →</a>
+      <a href="https://merq-vault.vercel.app/signup" class="btn-primary" style="font-size:17px;padding:18px 44px">Start free — 45 days on us →</a>
     </div>
     <p class="trial-note" style="position:relative;margin-top:20px">No credit card · No auto-charge · Cancel anytime</p>
-<p class="trial-note" style="position:relative;margin-top:8px;color:#2ECC8A;font-weight:600">✓ One subscription covers you <em>and</em> your partner — no extra charge</p>
+    <p class="trial-note" style="position:relative;margin-top:8px;color:#2ECC8A;font-weight:600">✓ One subscription covers you <em>and</em> your partner — no extra charge</p>
   </section>
 
-  <!-- FOOTER -->
-<footer>
-  <div class="footer-logo">Merq<span>Vault</span></div>
-  <div class="footer-copy">© 2026 Merq Software. All rights reserved.</div>
-  <div class="footer-links">
-    <a href="https://merq-vault.vercel.app/signup">Sign up</a>
-    <a href="https://merq-vault.vercel.app/login">Log in</a>
-    <a href="/privacy.html">Privacy Policy</a>
-    <a href="/terms.html">Terms of Service</a>
-    <a href="mailto:hello@getmerq.com">Contact</a>
-  </div>
-</footer>
+  <footer>
+    <div class="footer-logo">Merq<span>Vault</span></div>
+    <div class="footer-copy">© 2026 Merq Software. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="https://merq-vault.vercel.app/signup">Sign up</a>
+      <a href="https://merq-vault.vercel.app/login">Log in</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="mailto:hello@getmerq.com">Contact</a>
+    </div>
+  </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script>
-    // Billing toggle
     let isAnnual = true;
     function toggleBilling() {
       isAnnual = !isAnnual;
@@ -1002,7 +658,6 @@
     }
     document.getElementById('toggle-thumb').classList.add('annual');
 
-    // QR Code
     window.addEventListener('load', function() {
       new QRCode(document.getElementById('qr-code'), {
         text: 'https://merq-vault.vercel.app/signup',
