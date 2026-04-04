@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Merq Vault — Your Financial Life, Finally Simple</title>
-  <meta name="description" content="Budget smarter, track your net worth, manage bills, and share finances with your partner. Merq Vault is the personal finance app built for real life." />
-  
+  <title>Merq Vault — Budget, Net Worth & Bills for Couples</title>
+  <meta name="description" content="The privacy-first finance app for couples. Budget together, track net worth, manage bills — no bank login ever required. 45 days free." />
+  <meta property="og:title" content="Merq Vault — Your Financial Life, Finally Simple" />
+  <meta property="og:description" content="Budget smarter, track your net worth, and share finances with your partner. No bank login. No data selling. Just clarity." />
+  <meta property="og:url" content="https://getmerq.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -32,260 +36,120 @@
       overflow-x: hidden;
     }
 
+    /* NAV */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 20px 40px;
-      background: rgba(27,43,58,0.85);
+      background: rgba(27,43,58,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-
-    .logo {
-      font-family: 'Georgia', 'Times New Roman', serif;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-    }
+    .logo { font-family: 'Georgia', serif; font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
     .logo span { color: var(--green); }
-
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .nav-link:hover { color: #fff; }
     .nav-cta {
-      background: var(--green);
-      color: var(--green-dark);
-      padding: 10px 22px;
-      border-radius: 100px;
-      font-size: 14px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
+      background: var(--green); color: var(--green-dark);
+      padding: 10px 22px; border-radius: 100px; font-size: 14px; font-weight: 600;
+      text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
     }
-    .nav-cta:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 24px rgba(46,204,138,0.35);
-    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(46,204,138,0.35); }
 
+    /* HERO */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 24px 80px;
-      position: relative;
-      overflow: hidden;
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      padding: 120px 24px 80px; position: relative; overflow: hidden;
     }
-
     .hero-bg {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background:
         radial-gradient(ellipse 80% 60% at 50% -10%, rgba(46,204,138,0.18) 0%, transparent 70%),
         radial-gradient(ellipse 40% 40% at 80% 80%, rgba(91,143,170,0.12) 0%, transparent 60%);
     }
-
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(46,204,138,0.12);
-      border: 1px solid rgba(46,204,138,0.3);
-      color: var(--green);
-      padding: 8px 18px;
-      border-radius: 100px;
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 32px;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(46,204,138,0.12); border: 1px solid rgba(46,204,138,0.3);
+      color: var(--green); padding: 8px 18px; border-radius: 100px;
+      font-size: 13px; font-weight: 500; margin-bottom: 32px;
       animation: fadeUp 0.6s ease both;
     }
-
     .hero h1 {
-      font-family: 'Georgia', 'Times New Roman', serif;
-      font-size: clamp(44px, 8vw, 88px);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -2px;
-      margin-bottom: 24px;
-      animation: fadeUp 0.6s 0.1s ease both;
+      font-family: 'Georgia', serif; font-size: clamp(44px, 8vw, 88px);
+      font-weight: 800; line-height: 1.05; letter-spacing: -2px;
+      margin-bottom: 24px; animation: fadeUp 0.6s 0.1s ease both;
       -webkit-font-smoothing: antialiased;
     }
-
-    .hero h1 em {
-      font-style: normal;
-      color: var(--green);
+    .hero h1 em { font-style: normal; color: var(--green); }
+    .hero-sub {
+      font-size: clamp(17px, 2.5vw, 21px); color: rgba(255,255,255,0.65);
+      font-weight: 300; max-width: 560px; line-height: 1.65;
+      margin-bottom: 44px; animation: fadeUp 0.6s 0.2s ease both;
     }
-
-    .hero p {
-      font-size: clamp(16px, 2.5vw, 20px);
-      color: rgba(255,255,255,0.6);
-      font-weight: 300;
-      max-width: 520px;
-      line-height: 1.6;
-      margin-bottom: 44px;
-      animation: fadeUp 0.6s 0.2s ease both;
-    }
-
     .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      justify-content: center;
+      display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;
       animation: fadeUp 0.6s 0.3s ease both;
     }
-
     .btn-primary {
-      background: var(--green);
-      color: var(--green-dark);
-      padding: 16px 36px;
-      border-radius: 100px;
-      font-size: 16px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      background: var(--green); color: var(--green-dark);
+      padding: 16px 36px; border-radius: 100px; font-size: 16px; font-weight: 600;
+      text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-flex; align-items: center; gap: 8px;
     }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(46,204,138,0.4);
-    }
-
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(46,204,138,0.4); }
     .btn-ghost {
-      background: transparent;
-      color: rgba(255,255,255,0.7);
-      padding: 16px 28px;
-      border-radius: 100px;
-      font-size: 16px;
-      font-weight: 400;
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.15);
+      background: transparent; color: rgba(255,255,255,0.7);
+      padding: 16px 28px; border-radius: 100px; font-size: 16px; font-weight: 400;
+      text-decoration: none; border: 1px solid rgba(255,255,255,0.15);
       transition: border-color 0.2s, color 0.2s;
     }
-    .btn-ghost:hover {
-      border-color: rgba(255,255,255,0.4);
-      color: #fff;
-    }
-
-    .trial-note {
-      margin-top: 16px;
-      font-size: 13px;
-      color: var(--muted);
-      animation: fadeUp 0.6s 0.4s ease both;
-    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
+    .trial-note { margin-top: 16px; font-size: 13px; color: var(--muted); animation: fadeUp 0.6s 0.4s ease both; }
     .trial-note strong { color: var(--green); }
 
+    /* STATS */
     .stats-bar {
       background: rgba(255,255,255,0.04);
       border-top: 1px solid rgba(255,255,255,0.06);
       border-bottom: 1px solid rgba(255,255,255,0.06);
-      padding: 32px 40px;
-      display: flex;
-      justify-content: center;
-      gap: 64px;
-      flex-wrap: wrap;
+      padding: 32px 40px; display: flex; justify-content: center; gap: 64px; flex-wrap: wrap;
     }
-
     .stat-item { text-align: center; }
-    .stat-number {
-      font-family: 'Georgia', 'Times New Roman', serif;
-      font-size: 32px;
-      font-weight: 800;
-      color: var(--green);
-    }
+    .stat-number { font-family: 'Georgia', serif; font-size: 32px; font-weight: 800; color: var(--green); }
     .stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
-    .section {
-      padding: 100px 24px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+    /* SECTIONS */
+    .section { padding: 100px 24px; max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
+    .section-title { font-family: 'Georgia', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 800; letter-spacing: -1px; line-height: 1.15; margin-bottom: 16px; }
+    .section-sub { font-size: 18px; color: rgba(255,255,255,0.5); font-weight: 300; max-width: 480px; line-height: 1.6; margin-bottom: 60px; }
 
-    .section-label {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-family: 'Georgia', 'Times New Roman', serif;
-      font-size: clamp(32px, 5vw, 52px);
-      font-weight: 800;
-      letter-spacing: -1px;
-      line-height: 1.25;
-      margin-bottom: 16px;
-    }
-
-    .section-sub {
-      font-size: 18px;
-      color: rgba(255,255,255,0.5);
-      font-weight: 300;
-      max-width: 480px;
-      line-height: 1.6;
-      margin-bottom: 60px;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
+    /* FEATURES */
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
     .feature-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      padding: 32px;
-      transition: transform 0.2s, border-color 0.2s;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; padding: 32px; transition: transform 0.2s, border-color 0.2s;
     }
-    .feature-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(46,204,138,0.3);
-    }
-
+    .feature-card:hover { transform: translateY(-4px); border-color: rgba(46,204,138,0.3); }
     .feature-icon { font-size: 36px; margin-bottom: 18px; display: block; }
-    .feature-title {
-      font-family: 'Georgia', 'Times New Roman', serif;
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
+    .feature-title { font-family: 'Georgia', serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; }
     .feature-desc { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.6; font-weight: 300; }
 
+    /* COUPLE */
     .couple-section {
       background: rgba(46,204,138,0.06);
       border-top: 1px solid rgba(46,204,138,0.15);
       border-bottom: 1px solid rgba(46,204,138,0.15);
       padding: 100px 24px;
     }
-
-    .couple-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
+    .couple-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .couple-steps { display: flex; flex-direction: column; gap: 28px; margin-top: 40px; }
     .couple-step { display: flex; gap: 18px; align-items: flex-start; }
-    .step-num {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: var(--green); color: var(--green-dark);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Georgia', serif; font-weight: 800; font-size: 14px; flex-shrink: 0;
-    }
+    .step-num { width: 36px; height: 36px; border-radius: 50%; background: var(--green); color: var(--green-dark); display: flex; align-items: center; justify-content: center; font-family: 'Georgia', serif; font-weight: 800; font-size: 14px; flex-shrink: 0; }
     .step-content h4 { font-family: 'Georgia', serif; font-size: 17px; font-weight: 700; margin-bottom: 6px; }
     .step-content p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6; font-weight: 300; }
-
     .couple-visual { display: flex; flex-direction: column; gap: 16px; }
     .mock-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px 24px; }
     .mock-card-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
@@ -295,63 +159,90 @@
     .mock-pill { background: rgba(46,204,138,0.12); border: 1px solid rgba(46,204,138,0.2); color: var(--green); padding: 8px 16px; border-radius: 100px; font-size: 13px; font-weight: 500; }
     .mock-pill.orange { background: rgba(245,166,35,0.12); border-color: rgba(245,166,35,0.2); color: var(--yellow); }
 
+    /* PRICING */
     .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 720px; margin: 0 auto; }
     .pricing-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; padding: 36px; transition: transform 0.2s; }
     .pricing-card.featured { background: var(--green); border-color: var(--green); color: var(--green-dark); }
     .pricing-card:hover { transform: translateY(-4px); }
-    .pricing-plan { font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.6; margin-bottom: 12px; }
+    .pricing-plan { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.6; margin-bottom: 12px; }
     .pricing-price { font-family: 'Georgia', serif; font-size: 48px; font-weight: 800; line-height: 1; margin-bottom: 4px; }
     .pricing-period { font-size: 14px; opacity: 0.6; margin-bottom: 28px; }
     .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
     .pricing-features li { font-size: 14px; display: flex; align-items: center; gap: 10px; opacity: 0.85; }
     .pricing-features li::before { content: '✓'; font-weight: 700; flex-shrink: 0; }
-    .pricing-btn { display: block; width: 100%; padding: 14px; border-radius: 100px; font-size: 15px; font-weight: 500; text-align: center; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+    .pricing-btn { display: block; width: 100%; padding: 14px; border-radius: 100px; font-size: 15px; font-weight: 600; text-align: center; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
     .pricing-card:not(.featured) .pricing-btn { background: var(--green); color: var(--green-dark); }
     .pricing-card.featured .pricing-btn { background: var(--green-dark); color: var(--green); }
     .pricing-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .pricing-note { font-size: 13px; color: var(--muted); text-align: center; margin-top: 20px; }
 
+    /* BILLING TOGGLE */
+    .billing-toggle { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 40px; }
+    .billing-label { font-size: 15px; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 8px; }
+    .save-badge { background: var(--green); color: var(--green-dark); padding: 3px 8px; border-radius: 100px; font-size: 11px; font-weight: 600; }
+    .toggle-track { width: 52px; height: 28px; background: var(--green); border-radius: 14px; cursor: pointer; position: relative; }
+    .toggle-thumb { width: 22px; height: 22px; background: white; border-radius: 50%; position: absolute; top: 3px; left: 3px; transition: left 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+    .toggle-thumb.annual { left: 27px; }
+
+    /* TRUST */
+    .trust-section { padding: 100px 40px; background: #1B2B3A; }
+    .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-bottom: 64px; }
+    .trust-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 32px; text-align: left; }
+    .trust-icon { font-size: 36px; margin-bottom: 16px; }
+    .trust-title { font-family: 'Georgia', serif; font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .trust-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+    .trust-quote { background: rgba(46,204,138,0.08); border: 1px solid rgba(46,204,138,0.2); border-radius: 16px; padding: 32px 40px; max-width: 640px; margin: 0 auto; text-align: center; }
+    .trust-quote p { font-size: 18px; color: #fff; line-height: 1.7; font-weight: 300; font-style: italic; }
+
+    /* COMPARE */
+    .compare-section { padding: 100px 24px; max-width: 800px; margin: 0 auto; }
+    .compare-table { width: 100%; border-collapse: collapse; }
+    .compare-table th { padding: 12px 16px; font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid rgba(255,255,255,0.08); text-align: left; }
+    .compare-table th:not(:first-child) { text-align: center; }
+    .compare-table td { padding: 14px 16px; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.06); color: rgba(255,255,255,0.8); }
+    .compare-table td:not(:first-child) { text-align: center; font-size: 18px; }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table .highlight { color: var(--green); font-weight: 600; }
+    .col-merq { color: var(--green); }
+
+    /* APP DOWNLOAD */
+    .app-section { padding: 100px 24px; max-width: 900px; margin: 0 auto; text-align: center; }
+    .app-download { display: flex; align-items: center; justify-content: center; gap: 60px; flex-wrap: wrap; margin-top: 48px; }
+    .qr-wrap { text-align: center; }
+    .qr-code { width: 180px; height: 180px; background: white; border-radius: 16px; padding: 12px; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; }
+    .qr-label { font-size: 13px; color: var(--muted); }
+    .app-steps { display: flex; flex-direction: column; gap: 20px; text-align: left; max-width: 320px; }
+    .app-step { display: flex; gap: 14px; align-items: flex-start; }
+    .app-step-num { width: 28px; height: 28px; border-radius: 50%; background: rgba(46,204,138,0.15); border: 1px solid rgba(46,204,138,0.3); color: var(--green); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; margin-top: 2px; }
+    .app-step-text strong { font-size: 14px; color: white; font-weight: 600; display: block; margin-bottom: 2px; }
+    .app-step-text span { font-size: 13px; color: var(--muted); }
+    .install-note { margin-top: 16px; font-size: 13px; color: var(--muted); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 12px 16px; }
+
+    /* CTA */
     .cta-section { padding: 120px 24px; text-align: center; position: relative; overflow: hidden; }
     .cta-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(46,204,138,0.12) 0%, transparent 70%); }
     .cta-section h2 { font-family: 'Georgia', serif; font-size: clamp(36px, 6vw, 64px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.05; margin-bottom: 20px; position: relative; }
     .cta-section p { font-size: 18px; color: rgba(255,255,255,0.5); margin-bottom: 44px; font-weight: 300; position: relative; }
 
+    /* FOOTER */
     footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
     .footer-logo { font-family: 'Georgia', serif; font-size: 18px; font-weight: 800; }
     .footer-logo span { color: var(--green); }
     .footer-copy { font-size: 13px; color: var(--muted); }
-    .footer-links { display: flex; gap: 24px; }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
     .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--white); }
 
-    .billing-toggle { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 40px; }
-    .billing-label { font-size: 15px; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 8px; }
-    .save-badge { background: var(--green); color: var(--green-dark); padding: 3px 8px; border-radius: 100px; font-size: 11px; font-weight: 600; }
-    .toggle-track { width: 52px; height: 28px; background: var(--green); border-radius: 14px; cursor: pointer; position: relative; transition: background 0.2s; }
-    .toggle-thumb { width: 22px; height: 22px; background: white; border-radius: 50%; position: absolute; top: 3px; left: 3px; transition: left 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
-    .toggle-thumb.annual { left: 27px; }
-
-    .app-download { display: flex; align-items: center; justify-content: center; gap: 60px; flex-wrap: wrap; }
-    .qr-wrap { text-align: center; }
-    .qr-code { width: 180px; height: 180px; background: white; border-radius: 16px; padding: 12px; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; }
-    .qr-label { font-size: 13px; color: var(--muted); }
-    .app-steps { display: flex; flex-direction: column; gap: 24px; text-align: left; max-width: 340px; }
-    .app-step { display: flex; gap: 16px; align-items: flex-start; }
-    .app-step-num { width: 32px; height: 32px; border-radius: 50%; background: rgba(46,204,138,0.15); border: 1px solid rgba(46,204,138,0.3); color: var(--green); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
-    .app-step-text { display: flex; flex-direction: column; gap: 4px; padding-top: 4px; }
-    .app-step-text strong { font-size: 15px; color: white; font-weight: 600; }
-    .app-step-text span { font-size: 13px; color: var(--muted); }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
     @media (max-width: 768px) {
       nav { padding: 16px 20px; }
+      .nav-links .nav-link:not(.nav-cta) { display: none; }
       .stats-bar { gap: 32px; padding: 28px 20px; }
       .couple-inner { grid-template-columns: 1fr; gap: 48px; }
       .couple-visual { display: none; }
       .pricing-grid { grid-template-columns: 1fr; max-width: 360px; }
+      .compare-section { overflow-x: auto; }
       footer { flex-direction: column; text-align: center; }
       .footer-links { justify-content: center; }
     }
@@ -359,24 +250,33 @@
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
     <div class="logo">Merq<span>Vault</span></div>
-    <a href="https://merqvault.com/login" style="color:#8899AA;text-decoration:none;font-size:14px;margin-right:16px;">Log in</a>
-    <a href="https://merqvault.com/signup" class="nav-cta">Start free →</a>
+    <div class="nav-links">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="https://merqvault.com/login" class="nav-link">Log in</a>
+      <a href="https://merqvault.com/signup" class="nav-cta">Start free →</a>
+    </div>
   </nav>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-bg"></div>
-    <div class="hero-badge">✦ No bank login required · No credit card needed</div>
-    <h1>Your money.<br><em>Finally</em> under control.</h1>
-    <p>Budget smarter, track your net worth, manage bills, and share finances with your partner — all in one beautifully simple app.</p>
+    <div class="hero-badge">✦ No bank login · No credit card · No data selling</div>
+    <h1>Know where<br>your money <em>goes.</em></h1>
+    <p class="hero-sub">
+      The privacy-first finance app for couples and individuals. Budget together, track your net worth, and stay on top of bills — without handing your bank login to anyone.
+    </p>
     <div class="hero-actions">
-      <a href="https://merqvault.com/signup" class="btn-primary">Start for free →</a>
+      <a href="https://merqvault.com/signup" class="btn-primary">Start free — 45 days →</a>
       <a href="#features" class="btn-ghost">See how it works</a>
     </div>
-    <p class="trial-note"><strong>45 days free</strong> — no credit card, no auto-charge, ever.</p>
+    <p class="trial-note"><strong>45 days free</strong> · No credit card · No auto-charge · Cancel anytime</p>
   </section>
 
+  <!-- STATS -->
   <div class="stats-bar">
     <div class="stat-item">
       <div class="stat-number">$0</div>
@@ -384,62 +284,64 @@
     </div>
     <div class="stat-item">
       <div class="stat-number">5</div>
-      <div class="stat-label">Min setup time</div>
+      <div class="stat-label">Min to set up</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">No</div>
-      <div class="stat-label">Bank login needed</div>
+      <div class="stat-number">0</div>
+      <div class="stat-label">Bank logins required</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">&#8734;</div>
-      <div class="stat-label">Financial clarity</div>
+      <div class="stat-number">$59</div>
+      <div class="stat-label">Per year for two people</div>
     </div>
   </div>
 
+  <!-- FEATURES -->
   <section class="section" id="features">
     <div class="section-label">Everything you need</div>
     <h2 class="section-title">Built for how you<br>actually live</h2>
-    <p class="section-sub">Not another spreadsheet. Not another app that requires your bank password. Just the features that matter.</p>
+    <p class="section-sub">Not another spreadsheet. Not another app that requires your bank password. Just the tools that matter.</p>
     <div class="features-grid">
       <div class="feature-card">
         <span class="feature-icon">📊</span>
         <div class="feature-title">Smart Budgeting</div>
-        <div class="feature-desc">Set spending limits by category and watch your budget in real time. Velocity alerts warn you before you overspend — not after.</div>
+        <div class="feature-desc">Set monthly spending limits by category. See exactly where you stand in real time — and get warned before you overspend, not after.</div>
       </div>
       <div class="feature-card">
         <span class="feature-icon">🏦</span>
         <div class="feature-title">Net Worth Tracker</div>
-        <div class="feature-desc">No bank connections, no automatic syncing — just you, your numbers, and total privacy. Update your balances once a month in under 60 seconds. Your data is never shared with third parties — no Plaid, no data brokers, no exceptions.</div>
+        <div class="feature-desc">No bank connections, no automatic syncing — total privacy. Update your balances once a month and watch your wealth grow over time.</div>
       </div>
       <div class="feature-card">
         <span class="feature-icon">📅</span>
         <div class="feature-title">Bill Management</div>
-        <div class="feature-desc">Never miss a payment. Track recurring and one-time bills with due date reminders so nothing sneaks up on you.</div>
+        <div class="feature-desc">Track every recurring and one-time bill with due date reminders. Never get hit with a late fee again.</div>
       </div>
       <div class="feature-card">
         <span class="feature-icon">💳</span>
         <div class="feature-title">Debt Payoff</div>
-        <div class="feature-desc">See all your debts in one place with payoff timelines. Use the extra payment calculator to see exactly how much interest you'll save.</div>
+        <div class="feature-desc">See all your debts in one place with payoff timelines. The extra payment calculator shows exactly how much interest you'll save.</div>
       </div>
       <div class="feature-card">
         <span class="feature-icon">🎯</span>
         <div class="feature-title">Savings Goals</div>
-        <div class="feature-desc">Emergency fund, vacation, new car — set it, track it, crush it. Monthly savings targets keep you on pace automatically.</div>
+        <div class="feature-desc">Emergency fund, vacation, new car — set a target, track progress, and hit it. Monthly targets keep you on pace automatically.</div>
       </div>
       <div class="feature-card">
         <span class="feature-icon">🧾</span>
         <div class="feature-title">Receipt Scanner</div>
-        <div class="feature-desc">Snap a photo of any receipt or bill. Business expenses and charitable giving are saved automatically for tax season.</div>
+        <div class="feature-desc">Snap a photo of any receipt. Business expenses and charitable giving are automatically saved and organized for tax season.</div>
       </div>
     </div>
   </section>
 
+  <!-- COUPLES -->
   <div class="couple-section" id="couples">
     <div class="couple-inner">
       <div>
-        <div class="section-label">Built for couples too</div>
+        <div class="section-label">Built for couples</div>
         <h2 class="section-title">One app.<br>Two people.<br><em style="color:var(--green)">Zero arguments.</em></h2>
-        <p class="section-sub" style="margin-bottom:0">Invite your partner and share your full financial picture — budgets, net worth, bills, goals, everything.</p>
+        <p class="section-sub" style="margin-bottom:0">Share your full financial picture — budgets, net worth, bills, goals — without sharing a login or losing your independence.</p>
         <div class="couple-steps">
           <div class="couple-step">
             <div class="step-num">1</div>
@@ -452,14 +354,14 @@
             <div class="step-num">2</div>
             <div class="step-content">
               <h4>Invite your partner</h4>
-              <p>Send an invite from Settings. They'll get a link to join and connect in seconds.</p>
+              <p>Send an invite from Settings. They sign up with their own login — you each keep your independence.</p>
             </div>
           </div>
           <div class="couple-step">
             <div class="step-num">3</div>
             <div class="step-content">
-              <h4>Share everything</h4>
-              <p>Combined net worth, shared budget, merged transaction history. Both people keep their own login.</p>
+              <h4>See everything together</h4>
+              <p>Combined net worth, shared budget, merged transactions. One clear picture of your finances as a team.</p>
             </div>
           </div>
         </div>
@@ -491,17 +393,47 @@
     </div>
   </div>
 
+  <!-- HOW WE COMPARE -->
+  <section class="compare-section">
+    <div style="text-align:center;margin-bottom:48px">
+      <div class="section-label">How we compare</div>
+      <h2 class="section-title">Half the price.<br>More privacy.</h2>
+      <p class="section-sub" style="margin:0 auto">YNAB costs $109/year per person. Merq Vault is $59/year for two.</p>
+    </div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="col-merq">Merq Vault</th>
+          <th>YNAB</th>
+          <th>Mint</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Price per year</td><td class="highlight">$59 for 2 people</td><td>$109 per person</td><td>Discontinued</td></tr>
+        <tr><td>Bank login required</td><td class="highlight">Never</td><td>Yes (Plaid)</td><td>Yes</td></tr>
+        <tr><td>Sells your data</td><td class="highlight">Never</td><td>No</td><td>Yes</td></tr>
+        <tr><td>Partner sharing</td><td class="highlight">✓ Built in</td><td>Extra cost</td><td>—</td></tr>
+        <tr><td>Net worth tracking</td><td class="highlight">✓</td><td>✓</td><td>✓</td></tr>
+        <tr><td>Receipt scanning</td><td class="highlight">✓</td><td>—</td><td>—</td></tr>
+        <tr><td>Financial reports</td><td class="highlight">✓ Printable</td><td>✓</td><td>✓</td></tr>
+        <tr><td>45-day free trial</td><td class="highlight">✓</td><td>34 days</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- PRICING -->
   <section class="section" id="pricing" style="text-align:center">
     <div class="section-label">Pricing</div>
     <h2 class="section-title">Simple, honest pricing.</h2>
-    <p class="section-sub" style="margin:0 auto 40px">Start free for 45 days. No credit card. No hidden fees. No auto-charge.</p>
+    <p class="section-sub" style="margin:0 auto 40px">45 days free. No credit card. No hidden fees. No auto-charge — ever.</p>
 
     <div class="billing-toggle">
-      <span class="billing-label" id="label-monthly">Monthly</span>
+      <span class="billing-label">Monthly</span>
       <div class="toggle-track" onclick="toggleBilling()">
-        <div class="toggle-thumb" id="toggle-thumb"></div>
+        <div class="toggle-thumb annual" id="toggle-thumb"></div>
       </div>
-      <span class="billing-label" id="label-annual">Annual <span class="save-badge">Save 30%</span></span>
+      <span class="billing-label">Annual <span class="save-badge">Save 30%</span></span>
     </div>
 
     <div class="pricing-grid">
@@ -511,9 +443,9 @@
         <div class="pricing-period">for 45 days · then choose a plan</div>
         <ul class="pricing-features">
           <li>Full access to all features</li>
-          <li>Partner sharing</li>
+          <li>Partner sharing included</li>
           <li>50 receipt images</li>
-          <li>All 5 financial tools</li>
+          <li>All financial tools</li>
         </ul>
         <a href="https://merqvault.com/signup" class="pricing-btn">Start free →</a>
       </div>
@@ -531,12 +463,16 @@
         <a href="https://merqvault.com/signup" class="pricing-btn">Get Pro →</a>
       </div>
     </div>
+    <p class="pricing-note">One subscription covers two people. No per-seat pricing. No surprises.</p>
   </section>
 
-  <section class="section" id="get-app" style="text-align:center">
-    <div class="section-label">Get the app</div>
-    <h2 class="section-title">Always in your pocket.</h2>
-    <p class="section-sub" style="margin:0 auto 48px">Scan the QR code with your phone camera to open Merq Vault instantly. Then add it to your home screen for a native app experience — no App Store needed.</p>
+  <!-- GET THE APP -->
+  <section class="app-section" id="get-app">
+    <div class="section-label" style="text-align:center">Get the app</div>
+    <h2 class="section-title" style="text-align:center">Always in your pocket.</h2>
+    <p style="text-align:center;color:rgba(255,255,255,0.5);font-size:17px;font-weight:300;max-width:480px;margin:0 auto;line-height:1.6">
+      Merq Vault works on any device — iPhone, Android, desktop. No App Store required.
+    </p>
     <div class="app-download">
       <div class="qr-wrap">
         <div class="qr-code" id="qr-code"></div>
@@ -546,63 +482,59 @@
         <div class="app-step">
           <div class="app-step-num">1</div>
           <div class="app-step-text">
-            <strong>Scan the QR code</strong>
-            <span>Opens Merq Vault in your phone browser</span>
+            <strong>Scan or visit merqvault.com</strong>
+            <span>Opens instantly in your browser — no download needed</span>
           </div>
         </div>
         <div class="app-step">
           <div class="app-step-num">2</div>
           <div class="app-step-text">
-            <strong>On iPhone:</strong> Tap Share → Add to Home Screen
-            <span>On Android: Tap Menu → Add to Home Screen</span>
+            <strong>Add to your home screen</strong>
+            <span>iPhone: Share → Add to Home Screen · Android: Menu → Add to Home Screen</span>
           </div>
         </div>
         <div class="app-step">
           <div class="app-step-num">3</div>
           <div class="app-step-text">
-            <strong>Merq Vault is on your home screen</strong>
-            <span>Full screen, no browser bar — just like a real app</span>
+            <strong>Use it like a native app</strong>
+            <span>Full screen, no browser bar, Face ID login supported</span>
           </div>
         </div>
+        <div class="install-note">💡 Works offline too — your data is always available even without a connection.</div>
       </div>
     </div>
   </section>
 
-  <!-- PRIVACY / TRUST SECTION -->
-  <section style="padding: 100px 40px; background: #1B2B3A;">
-    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-      <div style="font-size: 13px; font-weight: 600; color: #2ECC8A; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;">Built different</div>
-      <h2 style="font-family: 'Georgia', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 800; color: #fff; letter-spacing: -1px; line-height: 1.15; margin-bottom: 20px;">Your money. Your data.<br>Full stop.</h2>
-      <p style="font-size: 18px; color: rgba(255,255,255,0.5); font-weight: 300; max-width: 560px; margin: 0 auto 64px; line-height: 1.7;">Most finance apps make money two ways: your subscription fee, and your data. We only do one.</p>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-bottom: 64px;">
-
-        <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 32px; text-align: left;">
-          <div style="font-size: 36px; margin-bottom: 16px;">🔒</div>
-          <div style="font-family: 'Georgia', serif; font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px;">No bank connections</div>
-          <div style="font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7;">We never ask for your bank login. No Plaid, no OAuth tokens, no third-party access to your accounts. Your credentials stay with your bank — always.</div>
+  <!-- PRIVACY / TRUST -->
+  <section class="trust-section">
+    <div style="max-width:900px;margin:0 auto;text-align:center">
+      <div class="section-label">Built different</div>
+      <h2 class="section-title">Your money. Your data.<br>Full stop.</h2>
+      <p style="font-size:18px;color:rgba(255,255,255,0.5);font-weight:300;max-width:560px;margin:0 auto 64px;line-height:1.7">Most finance apps make money two ways: your subscription and your data. We only do one.</p>
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon">🔒</div>
+          <div class="trust-title">No bank connections</div>
+          <div class="trust-desc">We never ask for your bank login. No Plaid, no OAuth tokens, no third-party access. Your credentials stay with your bank — always.</div>
         </div>
-
-        <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 32px; text-align: left;">
-          <div style="font-size: 36px; margin-bottom: 16px;">🚫</div>
-          <div style="font-family: 'Georgia', serif; font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px;">No data brokers</div>
-          <div style="font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7;">We don't sell, share, or license your financial data to anyone. Ever. Your spending habits, income, and net worth are yours alone.</div>
+        <div class="trust-card">
+          <div class="trust-icon">🚫</div>
+          <div class="trust-title">No data brokers</div>
+          <div class="trust-desc">We don't sell, share, or license your financial data to anyone. Ever. Your spending habits, income, and net worth are yours alone.</div>
         </div>
-
-        <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 32px; text-align: left;">
-          <div style="font-size: 36px; margin-bottom: 16px;">🏛️</div>
-          <div style="font-family: 'Georgia', serif; font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px;">Manual by design</div>
-          <div style="font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7;">Automatic bank syncing requires giving an app permission to read your transactions. We chose not to build that — not because we couldn't, but because your financial life shouldn't require that trade-off.</div>
+        <div class="trust-card">
+          <div class="trust-icon">🏛️</div>
+          <div class="trust-title">Manual by design</div>
+          <div class="trust-desc">Automatic syncing requires giving an app permission to read your transactions. We chose not to build that — because your financial life shouldn't require that trade-off.</div>
         </div>
-
       </div>
-
-      <div style="background: rgba(46,204,138,0.08); border: 1px solid rgba(46,204,138,0.2); border-radius: 16px; padding: 32px 40px; max-width: 640px; margin: 0 auto;">
-        <p style="font-size: 18px; color: #fff; line-height: 1.7; font-weight: 300; font-style: italic;">Merq Vault makes money one way — from people who tried it free, loved it, and chose to subscribe. That's it. No data deals. No ads. No middlemen.</p>
+      <div class="trust-quote">
+        <p>Merq Vault makes money one way — from people who tried it free, loved it, and chose to subscribe. That's it. No data deals. No ads. No middlemen.</p>
       </div>
     </div>
   </section>
 
+  <!-- FINAL CTA -->
   <section class="cta-section">
     <div class="cta-bg"></div>
     <h2 style="position:relative">Stop guessing.<br>Start knowing.</h2>
@@ -614,6 +546,7 @@
     <p class="trial-note" style="position:relative;margin-top:8px;color:#2ECC8A;font-weight:600">✓ One subscription covers you <em>and</em> your partner — no extra charge</p>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-logo">Merq<span>Vault</span></div>
     <div class="footer-copy">© 2026 Merq Software. All rights reserved.</div>
@@ -622,11 +555,11 @@
       <a href="https://merqvault.com/login">Log in</a>
       <a href="/privacy.html">Privacy Policy</a>
       <a href="/terms.html">Terms of Service</a>
-      <a href="/cdn-cgi/l/email-protection#ddb5b8b1b1b29dbab8a9b0b8afacf3beb2b0">Contact</a>
+      <a href="mailto:hello@getmerq.com">Contact</a>
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script>
     let isAnnual = true;
     function toggleBilling() {
@@ -644,11 +577,15 @@
         period.textContent = 'per month · $84/yr';
       }
     }
-    document.getElementById('toggle-thumb').classList.add('annual');
 
     window.addEventListener('load', function() {
       new QRCode(document.getElementById('qr-code'), {
         text: 'https://merqvault.com/signup',
-        width: 156,
-        height: 156,
-   
+        width: 156, height: 156,
+        colorDark: '#1B2B3A', colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    });
+  </script>
+</body>
+</html>
