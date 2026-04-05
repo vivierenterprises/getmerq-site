@@ -18,14 +18,11 @@
     --green: #2ECC8A;
     --green-dark: #1A9E68;
     --green-light: #E8F7F1;
-    --green-faint: rgba(46,204,138,0.06);
     --slate: #5B8FAA;
     --muted: #8899AA;
     --muted-dark: rgba(136,153,170,0.6);
-    --light: #F7F9FC;
     --white: #ffffff;
     --border: rgba(255,255,255,0.08);
-    --border-light: rgba(232,237,242,0.9);
   }
 
   html { scroll-behavior: smooth; }
@@ -38,50 +35,36 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ── NAV ── */
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 18px 48px;
-    background: rgba(15,30,45,0.9);
+    background: rgba(15,30,45,0.92);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
   }
 
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px; font-weight: 700;
-    color: var(--white); text-decoration: none;
-  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--white); text-decoration: none; }
   .nav-logo span { color: var(--green); }
 
   .nav-links { display: flex; align-items: center; gap: 28px; }
-  .nav-links a {
-    color: var(--muted); text-decoration: none;
-    font-size: 14px; font-weight: 500; transition: color 0.2s;
-  }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover { color: var(--white); }
 
-  .nav-btn {
-    background: var(--green); color: var(--navy) !important;
-    padding: 10px 22px; border-radius: 8px;
-    font-weight: 600 !important; transition: background 0.2s !important;
-  }
+  .nav-btn { background: var(--green); color: var(--navy) !important; padding: 10px 22px; border-radius: 8px; font-weight: 600 !important; transition: background 0.2s !important; }
   .nav-btn:hover { background: var(--green-dark) !important; color: var(--white) !important; }
 
-  /* ── HERO ── */
+  /* HERO */
   .hero {
     min-height: 100vh;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    text-align: center;
-    padding: 120px 24px 80px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 120px 24px 80px;
     position: relative; overflow: hidden;
   }
 
   .hero::before {
-    content: '';
-    position: absolute;
+    content: ''; position: absolute;
     width: 900px; height: 900px;
     background: radial-gradient(circle, rgba(46,204,138,0.07) 0%, transparent 65%);
     top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -90,8 +73,7 @@
 
   .hero-badge {
     display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(46,204,138,0.1);
-    border: 1px solid rgba(46,204,138,0.25);
+    background: rgba(46,204,138,0.1); border: 1px solid rgba(46,204,138,0.25);
     color: var(--green); font-size: 13px; font-weight: 500;
     padding: 8px 18px; border-radius: 100px; margin-bottom: 36px;
     animation: fadeUp 0.6s ease both;
@@ -100,411 +82,230 @@
   .hero h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(48px, 7vw, 88px);
-    font-weight: 900; line-height: 1.05;
-    letter-spacing: -2px; margin-bottom: 12px;
+    font-weight: 900; line-height: 1.05; letter-spacing: -2px; margin-bottom: 12px;
     animation: fadeUp 0.6s ease 0.1s both;
   }
-
   .hero h1 em { font-style: normal; color: var(--green); }
 
   .hero-sub {
-    font-size: clamp(16px, 2vw, 19px);
-    color: var(--muted); line-height: 1.7;
-    max-width: 580px; margin: 0 auto 40px;
-    font-weight: 300;
+    font-size: clamp(16px, 2vw, 19px); color: var(--muted); line-height: 1.7;
+    max-width: 580px; margin: 0 auto 40px; font-weight: 300;
     animation: fadeUp 0.6s ease 0.2s both;
   }
 
   .hero-ctas {
-    display: flex; align-items: center; gap: 16px;
-    flex-wrap: wrap; justify-content: center;
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center;
     animation: fadeUp 0.6s ease 0.3s both;
   }
 
   .btn-primary {
     background: var(--green); color: var(--navy);
-    padding: 16px 32px; border-radius: 10px;
-    font-size: 16px; font-weight: 600;
+    padding: 16px 32px; border-radius: 10px; font-size: 16px; font-weight: 600;
     text-decoration: none; transition: all 0.2s;
     display: inline-flex; align-items: center; gap: 8px;
   }
   .btn-primary:hover { background: var(--green-dark); color: var(--white); transform: translateY(-1px); }
 
-  .btn-secondary {
-    color: var(--muted); font-size: 15px; font-weight: 500;
-    text-decoration: none; transition: color 0.2s;
-    display: inline-flex; align-items: center; gap: 6px;
-  }
-  .btn-secondary:hover { color: var(--white); }
+  .btn-ghost { color: var(--muted); font-size: 15px; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+  .btn-ghost:hover { color: var(--white); }
 
-  .hero-trust {
-    margin-top: 20px;
-    font-size: 13px; color: var(--muted-dark);
-    animation: fadeUp 0.6s ease 0.4s both;
-  }
+  .hero-trust { margin-top: 20px; font-size: 13px; color: var(--muted-dark); animation: fadeUp 0.6s ease 0.4s both; }
 
-  /* ── STATS BAR ── */
+  /* STATS */
   .stats-bar {
-    background: rgba(46,204,138,0.06);
-    border-top: 1px solid rgba(46,204,138,0.12);
-    border-bottom: 1px solid rgba(46,204,138,0.12);
-    padding: 24px 48px;
-    display: flex; justify-content: center;
-    gap: 64px; flex-wrap: wrap;
+    background: rgba(46,204,138,0.05);
+    border-top: 1px solid rgba(46,204,138,0.12); border-bottom: 1px solid rgba(46,204,138,0.12);
+    padding: 24px 48px; display: flex; justify-content: center; gap: 64px; flex-wrap: wrap;
   }
-
   .stat-item { text-align: center; }
   .stat-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--green); }
-  .stat-label { font-size: 12px; color: var(--muted); margin-top: 2px; font-weight: 400; }
+  .stat-label { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
-  /* ── SECTION COMMONS ── */
+  /* SECTIONS */
   section { padding: 100px 48px; }
+  .section-label { font-size: 11px; font-weight: 600; color: var(--green); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 700; letter-spacing: -1px; line-height: 1.15; }
+  .section-sub { font-size: 17px; color: var(--muted); line-height: 1.7; font-weight: 300; margin-top: 16px; max-width: 520px; }
 
-  .section-label {
-    font-size: 11px; font-weight: 600; color: var(--green);
-    letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px;
-  }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 4vw, 44px);
-    font-weight: 700; letter-spacing: -1px; line-height: 1.15;
-  }
-
-  .section-sub {
-    font-size: 17px; color: var(--muted); line-height: 1.7;
-    font-weight: 300; margin-top: 16px; max-width: 520px;
-  }
-
-  /* ── SCREENSHOT FRAME ── */
+  /* SCREENSHOT FRAME */
   .screen-frame {
-    background: var(--navy-mid);
-    border-radius: 16px;
-    border: 1px solid rgba(255,255,255,0.1);
-    overflow: hidden;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+    border-radius: 16px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);
   }
-
-  .screen-frame img {
-    width: 100%; display: block;
-    border-radius: 0;
-  }
-
   .screen-bar {
-    background: var(--navy-light);
-    padding: 10px 16px;
+    background: var(--navy-light); padding: 10px 16px;
     display: flex; align-items: center; gap: 6px;
     border-bottom: 1px solid rgba(255,255,255,0.06);
   }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .screen-frame img { width: 100%; display: block; }
 
-  .screen-dot { width: 10px; height: 10px; border-radius: 50%; }
-
-  /* ── FEATURE: COUPLES ── */
-  .feature-couples {
+  /* FEATURE COUPLES */
+  .two-col {
     max-width: 1100px; margin: 0 auto;
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 80px; align-items: center;
   }
 
-  /* ── FEATURE GRID ── */
+  .feature-points { display: flex; flex-direction: column; gap: 20px; margin-top: 32px; }
+  .feature-point { display: flex; gap: 12px; align-items: flex-start; }
+  .feature-point-icon { color: var(--green); font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+  .feature-point-title { font-size: 15px; font-weight: 500; margin-bottom: 3px; }
+  .feature-point-desc { font-size: 14px; color: var(--muted); font-weight: 300; line-height: 1.6; }
+
+  /* FEATURE GRID */
   .feature-grid {
     max-width: 1100px; margin: 0 auto;
     display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 24px; margin-top: 64px;
+    gap: 20px;
   }
-
   .feature-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--border);
-    border-radius: 16px; padding: 32px;
-    transition: all 0.3s;
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px; transition: all 0.3s;
   }
-
-  .feature-card:hover {
-    border-color: rgba(46,204,138,0.2);
-    background: rgba(46,204,138,0.03);
-    transform: translateY(-2px);
-  }
-
-  .feature-icon { font-size: 28px; margin-bottom: 16px; display: block; }
-  .feature-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+  .feature-card:hover { border-color: rgba(46,204,138,0.2); background: rgba(46,204,138,0.03); transform: translateY(-2px); }
+  .feature-icon { font-size: 26px; margin-bottom: 14px; display: block; }
+  .feature-title { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
   .feature-desc { font-size: 14px; color: var(--muted); line-height: 1.65; font-weight: 300; }
 
-  /* ── SCREENSHOTS SHOWCASE ── */
-  .showcase { background: rgba(255,255,255,0.02); }
-
-  .showcase-inner {
-    max-width: 1100px; margin: 0 auto;
-  }
-
-  .showcase-header {
-    text-align: center; margin-bottom: 64px;
-  }
-
-  .screenshots-scroll {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+  /* SCREENSHOTS GRID */
+  .screenshots-grid {
+    max-width: 1100px; margin: 64px auto 0;
+    display: grid; grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
-
-  .screenshot-item {
+  .screenshot-card {
     border-radius: 16px; overflow: hidden;
     border: 1px solid var(--border);
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     transition: transform 0.3s;
   }
-
-  .screenshot-item:hover { transform: translateY(-4px); }
-
-  .screenshot-item img { width: 100%; display: block; }
-
+  .screenshot-card:hover { transform: translateY(-4px); }
+  .screenshot-card img { width: 100%; display: block; }
   .screenshot-caption {
-    background: var(--navy-mid);
-    padding: 14px 20px;
+    background: var(--navy-mid); padding: 14px 20px;
     border-top: 1px solid var(--border);
     display: flex; align-items: center; gap: 10px;
   }
+  .cap-icon { font-size: 15px; }
+  .cap-text { font-size: 13px; color: var(--muted); }
 
-  .screenshot-caption .cap-icon { font-size: 16px; }
-  .screenshot-caption .cap-text { font-size: 13px; color: var(--muted); font-weight: 400; }
-
-  /* ── FREELANCER SECTION ── */
+  /* FREELANCER */
   .freelancer {
-    background: linear-gradient(135deg, rgba(46,204,138,0.08) 0%, rgba(27,43,58,0) 60%);
-    border-top: 1px solid rgba(46,204,138,0.1);
-    border-bottom: 1px solid rgba(46,204,138,0.1);
+    background: linear-gradient(135deg, rgba(46,204,138,0.06) 0%, rgba(15,30,45,0) 60%);
+    border-top: 1px solid rgba(46,204,138,0.1); border-bottom: 1px solid rgba(46,204,138,0.1);
   }
-
-  .freelancer-inner {
-    max-width: 1100px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: center;
-  }
-
-  .freelancer-steps {
-    display: flex; flex-direction: column; gap: 20px;
-    margin-top: 32px;
-  }
-
+  .freelancer-steps { display: flex; flex-direction: column; gap: 16px; margin-top: 28px; }
   .freelancer-step {
-    display: flex; gap: 16px; align-items: flex-start;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--border);
-    border-radius: 12px; padding: 20px;
-    transition: border-color 0.2s;
+    display: flex; gap: 14px; align-items: flex-start;
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px; transition: border-color 0.2s;
   }
-
   .freelancer-step:hover { border-color: rgba(46,204,138,0.2); }
-
   .step-num {
-    width: 32px; height: 32px; border-radius: 50%;
-    background: rgba(46,204,138,0.15);
-    color: var(--green); font-size: 13px; font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: rgba(46,204,138,0.15); color: var(--green);
+    font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
-
-  .step-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .step-title { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
   .step-desc { font-size: 13px; color: var(--muted); line-height: 1.5; font-weight: 300; }
 
-  /* ── PRIVACY ── */
-  .privacy-inner {
-    max-width: 1100px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: center;
-  }
-
-  .privacy-points {
-    display: flex; flex-direction: column; gap: 16px; margin-top: 32px;
-  }
-
-  .privacy-point {
-    display: flex; gap: 14px; align-items: flex-start;
-  }
-
-  .privacy-check {
-    width: 24px; height: 24px; border-radius: 50%;
-    background: var(--green-light);
-    color: var(--green-dark); font-size: 12px; font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; margin-top: 1px;
-  }
-
-  .privacy-text { font-size: 15px; color: var(--muted); line-height: 1.6; font-weight: 300; }
-  .privacy-text strong { color: var(--white); font-weight: 500; }
-
+  /* PRIVACY */
   .privacy-visual {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--border);
-    border-radius: 20px; padding: 40px;
-    text-align: center;
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+    border-radius: 20px; padding: 36px; text-align: center;
   }
-
-  .lock-icon { font-size: 64px; margin-bottom: 20px; display: block; }
-
-  .privacy-vs {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 16px; margin-top: 24px;
-  }
-
-  .vs-col {
-    background: rgba(255,255,255,0.03);
-    border-radius: 10px; padding: 16px;
-    border: 1px solid var(--border);
-  }
-
+  .privacy-vs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px; }
+  .vs-col { background: rgba(255,255,255,0.03); border-radius: 10px; padding: 16px; border: 1px solid var(--border); }
   .vs-col.good { border-color: rgba(46,204,138,0.2); }
   .vs-col.bad { border-color: rgba(240,78,78,0.15); }
-
   .vs-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
   .vs-col.good .vs-label { color: var(--green); }
   .vs-col.bad .vs-label { color: #F04E4E; }
-
-  .vs-item { font-size: 12px; color: var(--muted); padding: 4px 0; display: flex; align-items: center; gap: 6px; }
+  .vs-item { font-size: 12px; color: var(--muted); padding: 3px 0; display: flex; align-items: center; gap: 6px; }
   .vs-item::before { content: ''; width: 4px; height: 4px; border-radius: 50%; flex-shrink: 0; }
   .vs-col.good .vs-item::before { background: var(--green); }
   .vs-col.bad .vs-item::before { background: #F04E4E; }
 
-  /* ── PRICING ── */
-  .pricing-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+  .privacy-points { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+  .privacy-point { display: flex; gap: 12px; align-items: flex-start; }
+  .privacy-check {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--green-light); color: var(--green-dark);
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
+  }
+  .privacy-text { font-size: 15px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+  .privacy-text strong { color: var(--white); font-weight: 500; }
 
+  /* COMPARISON */
+  .comp-table { width: 100%; border-collapse: collapse; margin-top: 48px; }
+  .comp-table th { font-size: 13px; font-weight: 600; padding: 16px 20px; border-bottom: 1px solid var(--border); text-align: left; color: var(--muted); }
+  .comp-table th.hl { color: var(--green); }
+  .comp-table td { padding: 13px 20px; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 14px; color: var(--muted); }
+  .comp-table td:first-child { color: var(--white); font-weight: 500; }
+  .comp-yes { color: var(--green) !important; font-weight: 600; }
+  .comp-no { color: rgba(136,153,170,0.35) !important; }
+  .comp-hl td { background: rgba(46,204,138,0.04); }
+  .comp-hl td:first-child { color: var(--green) !important; }
+  .comp-note { font-size: 11px; color: var(--muted-dark); margin-top: 14px; text-align: right; }
+
+  /* PRICING */
   .pricing-cards {
     display: grid; grid-template-columns: 1fr 1fr;
-    gap: 20px; margin-top: 48px; max-width: 680px; margin-left: auto; margin-right: auto;
+    gap: 20px; margin-top: 48px; max-width: 660px; margin-left: auto; margin-right: auto;
   }
-
   .pricing-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--border);
-    border-radius: 20px; padding: 36px 32px;
-    text-align: left; position: relative;
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+    border-radius: 20px; padding: 36px 28px; position: relative;
   }
-
-  .pricing-card.featured {
-    border-color: rgba(46,204,138,0.3);
-    background: rgba(46,204,138,0.05);
-  }
-
+  .pricing-card.featured { border-color: rgba(46,204,138,0.3); background: rgba(46,204,138,0.05); }
   .pricing-best {
-    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
     background: var(--green); color: var(--navy);
-    font-size: 11px; font-weight: 700; padding: 4px 14px; border-radius: 100px;
-    white-space: nowrap;
+    font-size: 11px; font-weight: 700; padding: 3px 14px; border-radius: 100px; white-space: nowrap;
   }
-
-  .pricing-period { font-size: 13px; color: var(--muted); margin-bottom: 8px; font-weight: 400; }
-  .pricing-amount { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 900; letter-spacing: -2px; }
-  .pricing-amount sup { font-size: 22px; font-weight: 400; vertical-align: super; letter-spacing: 0; }
+  .pricing-period { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+  .pricing-amount { font-family: 'Playfair Display', serif; font-size: 46px; font-weight: 900; letter-spacing: -2px; }
+  .pricing-amount sup { font-size: 20px; font-weight: 400; vertical-align: super; letter-spacing: 0; }
   .pricing-note { font-size: 13px; color: var(--muted); margin-top: 4px; }
-
-  .pricing-features { margin-top: 24px; display: flex; flex-direction: column; gap: 8px; }
+  .pricing-features { margin-top: 22px; display: flex; flex-direction: column; gap: 8px; }
   .pricing-feature { font-size: 13px; color: var(--muted); display: flex; gap: 8px; align-items: center; }
   .pricing-feature::before { content: '✓'; color: var(--green); font-weight: 700; font-size: 12px; }
 
-  .pricing-cta {
-    margin-top: 48px;
-  }
-
-  .pricing-sub {
-    font-size: 13px; color: var(--muted-dark); margin-top: 16px;
-  }
-
-  /* ── COMPARISON ── */
-  .comparison-inner { max-width: 900px; margin: 0 auto; }
-
-  .comp-table { width: 100%; border-collapse: collapse; margin-top: 48px; }
-  .comp-table th {
-    font-size: 13px; font-weight: 600; padding: 16px 20px;
-    border-bottom: 1px solid var(--border); text-align: left;
-    color: var(--muted);
-  }
-  .comp-table th:first-child { color: var(--white); }
-  .comp-table th.highlight { color: var(--green); }
-
-  .comp-table td {
-    padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.04);
-    font-size: 14px; color: var(--muted);
-  }
-  .comp-table td:first-child { color: var(--white); font-weight: 500; }
-
-  .comp-yes { color: var(--green) !important; font-weight: 600; }
-  .comp-no { color: rgba(136,153,170,0.4) !important; }
-  .comp-highlight td { background: rgba(46,204,138,0.04); }
-  .comp-highlight td:first-child { color: var(--green) !important; }
-
-  .comp-note { font-size: 11px; color: var(--muted-dark); margin-top: 16px; text-align: right; }
-
-  /* ── FOOTER ── */
-  .site-footer {
-    background: rgba(0,0,0,0.3);
-    border-top: 1px solid var(--border);
-    padding: 60px 48px 32px;
-  }
-
-  .footer-grid {
-    max-width: 1100px; margin: 0 auto;
-    display: grid; grid-template-columns: 2fr 1fr 1fr;
-    gap: 60px; margin-bottom: 40px;
-  }
-
-  .footer-brand { }
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px; font-weight: 700; color: var(--white); text-decoration: none;
-  }
+  /* FOOTER */
+  .site-footer { background: rgba(0,0,0,0.3); border-top: 1px solid var(--border); padding: 56px 48px 32px; }
+  .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 40px; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--white); text-decoration: none; }
   .footer-logo span { color: var(--green); }
-  .footer-brand-sub {
-    font-size: 14px; color: var(--muted); margin-top: 8px; line-height: 1.6; font-weight: 300;
-    max-width: 280px;
-  }
-
-  .footer-col h4 { font-size: 13px; font-weight: 600; margin-bottom: 16px; color: var(--white); }
-  .footer-col a {
-    display: block; font-size: 14px; color: var(--muted);
-    text-decoration: none; margin-bottom: 10px; transition: color 0.2s; font-weight: 300;
-  }
+  .footer-brand-sub { font-size: 14px; color: var(--muted); margin-top: 8px; line-height: 1.6; font-weight: 300; max-width: 280px; }
+  .footer-col h4 { font-size: 13px; font-weight: 600; margin-bottom: 14px; }
+  .footer-col a { display: block; font-size: 14px; color: var(--muted); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; font-weight: 300; }
   .footer-col a:hover { color: var(--white); }
-
-  .footer-bottom {
-    max-width: 1100px; margin: 0 auto;
-    border-top: 1px solid var(--border); padding-top: 24px;
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 12px;
-  }
-
+  .footer-bottom { max-width: 1100px; margin: 0 auto; border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
   .footer-copy { font-size: 12px; color: rgba(136,153,170,0.4); }
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .reveal {
-    opacity: 0; transform: translateY(28px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     nav { padding: 14px 20px; }
-    .nav-links { gap: 16px; }
     section { padding: 64px 24px; }
-    .feature-couples, .freelancer-inner, .privacy-inner { grid-template-columns: 1fr; gap: 48px; }
+    .two-col { grid-template-columns: 1fr; gap: 48px; }
     .feature-grid { grid-template-columns: 1fr; }
-    .screenshots-scroll { grid-template-columns: 1fr; }
+    .screenshots-grid { grid-template-columns: 1fr; }
     .pricing-cards { grid-template-columns: 1fr; max-width: 380px; }
     .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-    .footer-bottom { flex-direction: column; align-items: flex-start; }
     .stats-bar { gap: 32px; padding: 20px 24px; }
   }
 
   @media (max-width: 600px) {
     .nav-links a:not(.nav-btn) { display: none; }
-    .hero h1 { letter-spacing: -1px; }
     .comp-table { font-size: 12px; }
-    .comp-table th, .comp-table td { padding: 10px 12px; }
+    .comp-table th, .comp-table td { padding: 10px 10px; }
   }
 </style>
 </head>
@@ -527,325 +328,154 @@
   <p class="hero-sub">The privacy-first finance app for couples and individuals. Budget together, track your net worth, and stay on top of bills — without handing your bank login to anyone.</p>
   <div class="hero-ctas">
     <a href="https://merqvault.com/signup" class="btn-primary">Start 45-day free trial →</a>
-    <a href="#features" class="btn-secondary">See how it works ↓</a>
+    <a href="#features" class="btn-ghost">See how it works ↓</a>
   </div>
   <p class="hero-trust">45-day free trial · No credit card required · $59/year for two people</p>
 </section>
 
-<!-- STATS BAR -->
+<!-- STATS -->
 <div class="stats-bar">
-  <div class="stat-item">
-    <div class="stat-num">$59</div>
-    <div class="stat-label">per year for two people</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">45</div>
-    <div class="stat-label">day free trial</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">0</div>
-    <div class="stat-label">bank connections required</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">3</div>
-    <div class="stat-label">languages supported</div>
-  </div>
+  <div class="stat-item"><div class="stat-num">$59</div><div class="stat-label">per year for two people</div></div>
+  <div class="stat-item"><div class="stat-num">45</div><div class="stat-label">day free trial</div></div>
+  <div class="stat-item"><div class="stat-num">0</div><div class="stat-label">bank connections required</div></div>
+  <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">languages supported</div></div>
 </div>
 
-<!-- FEATURE: COUPLES DASHBOARD -->
+<!-- FEATURE: COUPLES -->
 <section id="features">
-  <div class="feature-couples reveal">
+  <div class="two-col reveal">
     <div>
       <div class="section-label">Built for two</div>
       <h2 class="section-title">Your finances, shared — without the complexity.</h2>
-      <p class="section-sub">Both partners get their own login. See your combined net worth, shared budget, and bills in one place. Know who spent what, without any awkwardness.</p>
-      <div style="margin-top: 32px; display: flex; flex-direction: column; gap: 14px;">
-        <div style="display: flex; gap: 12px; align-items: flex-start;">
-          <span style="color: var(--green); font-size: 18px; flex-shrink: 0;">✦</span>
+      <p class="section-sub">Both partners get their own login. See your combined net worth, shared budget, and bills in one place.</p>
+      <div class="feature-points">
+        <div class="feature-point">
+          <span class="feature-point-icon">✦</span>
           <div>
-            <div style="font-size: 15px; font-weight: 500; margin-bottom: 3px;">One subscription covers both of you</div>
-            <div style="font-size: 14px; color: var(--muted); font-weight: 300;">YNAB charges $109/person. You pay $59 total — for both.</div>
+            <div class="feature-point-title">One subscription covers both of you</div>
+            <div class="feature-point-desc">YNAB charges $109/person. You pay $59 total — for both.</div>
           </div>
         </div>
-        <div style="display: flex; gap: 12px; align-items: flex-start;">
-          <span style="color: var(--green); font-size: 18px; flex-shrink: 0;">✦</span>
+        <div class="feature-point">
+          <span class="feature-point-icon">✦</span>
           <div>
-            <div style="font-size: 15px; font-weight: 500; margin-bottom: 3px;">Each person keeps their own login</div>
-            <div style="font-size: 14px; color: var(--muted); font-weight: 300;">No shared passwords. Both see the full picture together.</div>
+            <div class="feature-point-title">Each person keeps their own login</div>
+            <div class="feature-point-desc">No shared passwords. Both see the full picture together.</div>
           </div>
         </div>
-        <div style="display: flex; gap: 12px; align-items: flex-start;">
-          <span style="color: var(--green); font-size: 18px; flex-shrink: 0;">✦</span>
+        <div class="feature-point">
+          <span class="feature-point-icon">✦</span>
           <div>
-            <div style="font-size: 15px; font-weight: 500; margin-bottom: 3px;">Invite by email in 30 seconds</div>
-            <div style="font-size: 14px; color: var(--muted); font-weight: 300;">Send your partner an invite. They get full access instantly.</div>
+            <div class="feature-point-title">Invite by email in 30 seconds</div>
+            <div class="feature-point-desc">Send your partner an invite. They get full access instantly.</div>
           </div>
         </div>
       </div>
     </div>
     <div class="screen-frame">
       <div class="screen-bar">
-        <div class="screen-dot" style="background:#FF5F57;"></div>
-        <div class="screen-dot" style="background:#FEBC2E;"></div>
-        <div class="screen-dot" style="background:#28C840;"></div>
-        <div style="flex:1; text-align:center; font-size:12px; color:rgba(255,255,255,0.3);">merqvault.com</div>
+        <div class="dot" style="background:#FF5F57;"></div>
+        <div class="dot" style="background:#FEBC2E;"></div>
+        <div class="dot" style="background:#28C840;"></div>
+        <div style="flex:1;text-align:center;font-size:12px;color:rgba(255,255,255,0.3);">merqvault.com</div>
       </div>
-      <!-- Dashboard screenshot placeholder - replace src with actual screenshot path -->
-      <div style="background: #1B2B3A; padding: 0; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px;">
-        <div style="background: rgba(46,204,138,0.1); border: 1px solid rgba(46,204,138,0.2); border-radius: 12px; padding: 24px 32px; text-align: center; max-width: 280px;">
-          <div style="font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">COMBINED NET WORTH</div>
-          <div style="font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 900; color: var(--white);">$71,961</div>
-          <div style="display: flex; gap: 20px; justify-content: center; margin-top: 12px;">
-            <span style="font-size: 13px; color: var(--green);">↑ $72,331 assets</span>
-            <span style="font-size: 13px; color: #F04E4E;">↓ $370 debts</span>
-          </div>
-        </div>
-        <div style="font-size: 13px; color: var(--slate);">👫 Sharing with Sharon</div>
-      </div>
+      <img src="screenshots/budget.png" alt="Merq Vault budget screen showing combined income and partner sharing">
     </div>
   </div>
 </section>
 
 <!-- FEATURE GRID -->
 <section style="padding-top: 0;">
-  <div style="max-width: 1100px; margin: 0 auto;">
+  <div style="max-width:1100px;margin:0 auto;">
     <div class="feature-grid">
-      <div class="feature-card reveal">
-        <span class="feature-icon">💰</span>
-        <div class="feature-title">Budget that actually balances</div>
-        <div class="feature-desc">Set income, allocate to categories, and watch your spending in real time. Velocity alerts tell you when a category is ahead of pace before you overspend.</div>
-      </div>
-      <div class="feature-card reveal">
-        <span class="feature-icon">🏦</span>
-        <div class="feature-title">Net worth without the bank</div>
-        <div class="feature-desc">Add your accounts manually — savings, investments, home, car. Update balances once a month. Combined view for couples. No Plaid. No bank access. Ever.</div>
-      </div>
-      <div class="feature-card reveal">
-        <span class="feature-icon">📅</span>
-        <div class="feature-title">Bills & reminders</div>
-        <div class="feature-desc">Track every recurring bill. See what's due and when. Get alerted when a bill is coming up. Automatically matches payments to bills when you log them.</div>
-      </div>
-      <div class="feature-card reveal">
-        <span class="feature-icon">🎯</span>
-        <div class="feature-title">Savings goals</div>
-        <div class="feature-desc">Set a goal, name it, give it a target date. The app calculates how much you need to save per month to get there. Shared goals with your partner.</div>
-      </div>
-      <div class="feature-card reveal">
-        <span class="feature-icon">🌍</span>
-        <div class="feature-title">Multilingual & multi-currency</div>
-        <div class="feature-desc">Full support for English, Spanish, and Hebrew — including category translation. USD, EUR, GBP, ILS, MXN and more. Switch anytime in Settings.</div>
-      </div>
-      <div class="feature-card reveal">
-        <span class="feature-icon">📊</span>
-        <div class="feature-title">Financial reports</div>
-        <div class="feature-desc">Generate monthly summaries with income, spending by category, savings rate, and budget variance. Print or save as PDF. Built for couples and freelancers alike.</div>
-      </div>
+      <div class="feature-card reveal"><span class="feature-icon">💰</span><div class="feature-title">Budget that actually balances</div><div class="feature-desc">Set income, allocate to categories, and watch your spending in real time. Velocity alerts tell you when a category is ahead of pace.</div></div>
+      <div class="feature-card reveal"><span class="feature-icon">🏦</span><div class="feature-title">Net worth without the bank</div><div class="feature-desc">Add accounts manually — savings, investments, home, car. Combined view for couples. No Plaid. No bank access. Ever.</div></div>
+      <div class="feature-card reveal"><span class="feature-icon">📅</span><div class="feature-title">Bills & reminders</div><div class="feature-desc">Track every recurring bill. Get alerted when one is coming up. Automatically matches payments to bills when you log them.</div></div>
+      <div class="feature-card reveal"><span class="feature-icon">🎯</span><div class="feature-title">Savings goals</div><div class="feature-desc">Set a goal, name it, give it a target date. The app calculates how much you need to save per month. Shared with your partner.</div></div>
+      <div class="feature-card reveal"><span class="feature-icon">🌍</span><div class="feature-title">Multilingual & multi-currency</div><div class="feature-desc">Full support for English, Spanish, and Hebrew — including category translation. USD, EUR, GBP, ILS, MXN. Switch anytime.</div></div>
+      <div class="feature-card reveal"><span class="feature-icon">📊</span><div class="feature-title">Financial reports</div><div class="feature-desc">Generate monthly summaries with income, spending by category, savings rate, and budget variance. Print or save as PDF.</div></div>
     </div>
   </div>
 </section>
 
 <!-- SCREENSHOTS SHOWCASE -->
-<section class="showcase">
-  <div class="showcase-inner">
-    <div class="showcase-header reveal">
+<section style="background: rgba(255,255,255,0.015); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;" class="reveal">
       <div class="section-label">See it in action</div>
       <h2 class="section-title">Every screen, designed for clarity.</h2>
     </div>
-    <div class="screenshots-scroll">
-      <div class="screenshot-item reveal">
-        <div style="background:#1B2B3A; padding: 32px; display: flex; flex-direction: column; gap: 12px;">
-          <div style="font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em;">Bills & Reminders · Shared with Sharon</div>
-          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <div style="font-size: 15px; font-weight: 500;">Rent</div>
-              <div style="font-size: 13px; color: var(--green);">Due in 26d · Monthly</div>
-            </div>
-            <div style="text-align: right;">
-              <div style="font-size: 20px; font-weight: 700;">$1,750</div>
-              <div style="background: var(--green); color: var(--navy); font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 6px; margin-top: 6px;">✓ Paid</div>
-            </div>
-          </div>
-          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <div style="font-size: 15px; font-weight: 500;">Netflix</div>
-              <div style="font-size: 13px; color: #F5A623;">Due in 4d · Monthly</div>
-            </div>
-            <div style="text-align: right;">
-              <div style="font-size: 20px; font-weight: 700;">$13</div>
-              <div style="background: var(--green); color: var(--navy); font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 6px; margin-top: 6px;">✓ Paid</div>
-            </div>
-          </div>
-        </div>
-        <div class="screenshot-caption">
-          <span class="cap-icon">📅</span>
-          <span class="cap-text">Bills shared between partners — see who added what</span>
-        </div>
+    <div class="screenshots-grid">
+      <div class="screenshot-card reveal">
+        <img src="screenshots/networth.png" alt="Combined net worth tracker showing $71,961">
+        <div class="screenshot-caption"><span class="cap-icon">🏦</span><span class="cap-text">Combined net worth — no bank connection needed</span></div>
       </div>
-
-      <div class="screenshot-item reveal">
-        <div style="background:#1B2B3A; padding: 32px;">
-          <div style="font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;">Savings Goals · Shared with Sharon</div>
-          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
-              <div>
-                <div style="font-size: 16px; font-weight: 600;">🚀 Family Vacation - Hawaii</div>
-                <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">Jun 2027 · Just getting started</div>
-              </div>
-              <div style="font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900;">$2,800</div>
-            </div>
-            <div style="background: rgba(255,255,255,0.06); border-radius: 4px; height: 6px; margin-bottom: 8px;">
-              <div style="background: var(--green); height: 6px; border-radius: 4px; width: 16%;"></div>
-            </div>
-            <div style="display: flex; justify-content: space-between; font-size: 13px; color: var(--muted);">
-              <span>16% saved</span><span>$15,200 to go</span>
-            </div>
-            <div style="background: rgba(46,204,138,0.08); border-radius: 8px; padding: 10px 14px; margin-top: 14px; font-size: 13px; color: var(--slate);">💡 Save $1,086/month to reach your goal in 14 months</div>
-          </div>
-        </div>
-        <div class="screenshot-caption">
-          <span class="cap-icon">🎯</span>
-          <span class="cap-text">Shared savings goals with monthly savings calculator</span>
-        </div>
+      <div class="screenshot-card reveal">
+        <img src="screenshots/bills.png" alt="Bills and reminders shared with partner">
+        <div class="screenshot-caption"><span class="cap-icon">📅</span><span class="cap-text">Shared bills — see who added what and what's due</span></div>
       </div>
-
-      <div class="screenshot-item reveal">
-        <div style="background:#1B2B3A; padding: 32px;">
-          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px;">
-            <div style="background: rgba(255,255,255,0.04); border-radius: 10px; padding: 16px; text-align: center;">
-              <div style="font-size: 11px; color: var(--muted); margin-bottom: 6px;">LANGUAGE</div>
-              <div style="font-size: 20px;">🇺🇸</div>
-              <div style="font-size: 13px; margin-top: 4px; color: var(--green);">English</div>
-            </div>
-            <div style="background: rgba(255,255,255,0.04); border-radius: 10px; padding: 16px; text-align: center;">
-              <div style="font-size: 11px; color: var(--muted); margin-bottom: 6px;"> </div>
-              <div style="font-size: 20px;">🇲🇽</div>
-              <div style="font-size: 13px; margin-top: 4px; color: var(--muted);">Español</div>
-            </div>
-            <div style="background: rgba(255,255,255,0.04); border-radius: 10px; padding: 16px; text-align: center;">
-              <div style="font-size: 11px; color: var(--muted); margin-bottom: 6px;"> </div>
-              <div style="font-size: 20px;">🇮🇱</div>
-              <div style="font-size: 13px; margin-top: 4px; color: var(--muted);">עברית</div>
-            </div>
-          </div>
-          <div style="background: rgba(255,255,255,0.04); border-radius: 10px; padding: 16px;">
-            <div style="font-size: 13px; color: var(--muted); margin-bottom: 12px;">CURRENCY</div>
-            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-              <div style="background: rgba(46,204,138,0.15); border: 1px solid var(--green); border-radius: 8px; padding: 8px 14px; text-align: center; font-size: 13px; color: var(--green); font-weight: 500;">$ USD</div>
-              <div style="background: rgba(255,255,255,0.04); border-radius: 8px; padding: 8px 14px; text-align: center; font-size: 13px; color: var(--muted);">₪ ILS</div>
-              <div style="background: rgba(255,255,255,0.04); border-radius: 8px; padding: 8px 14px; text-align: center; font-size: 13px; color: var(--muted);">€ EUR</div>
-              <div style="background: rgba(255,255,255,0.04); border-radius: 8px; padding: 8px 14px; text-align: center; font-size: 13px; color: var(--muted);">£ GBP</div>
-            </div>
-          </div>
-        </div>
-        <div class="screenshot-caption">
-          <span class="cap-icon">🌍</span>
-          <span class="cap-text">Three languages · Five currencies · Switch anytime</span>
-        </div>
+      <div class="screenshot-card reveal">
+        <img src="screenshots/goals.png" alt="Savings goal for Hawaii vacation">
+        <div class="screenshot-caption"><span class="cap-icon">🎯</span><span class="cap-text">Savings goals with monthly savings calculator</span></div>
       </div>
-
-      <div class="screenshot-item reveal">
-        <div style="background:#1B2B3A; padding: 32px;">
-          <div style="text-align: center; margin-bottom: 20px;">
-            <div style="font-size: 40px; margin-bottom: 8px;">👫</div>
-            <div style="font-size: 18px; font-weight: 700; margin-bottom: 4px;">You have been invited!</div>
-            <div style="font-size: 14px; color: var(--muted);">Paul Simon has invited you to share finances on Merq Vault.</div>
-          </div>
-          <div style="background: rgba(255,255,255,0.04); border-radius: 10px; padding: 20px; margin-bottom: 16px;">
-            <div style="font-size: 14px; color: var(--muted); margin-bottom: 8px; display: flex; align-items: center; gap: 8px;"><span style="color: var(--green);">✓</span> Shared budget tracking</div>
-            <div style="font-size: 14px; color: var(--muted); margin-bottom: 8px; display: flex; align-items: center; gap: 8px;"><span style="color: var(--green);">✓</span> Combined net worth view</div>
-            <div style="font-size: 14px; color: var(--muted); margin-bottom: 8px; display: flex; align-items: center; gap: 8px;"><span style="color: var(--green);">✓</span> Shared bills and goals</div>
-            <div style="font-size: 14px; color: var(--muted); display: flex; align-items: center; gap: 8px;"><span style="color: var(--green);">✓</span> Each person keeps their own login</div>
-          </div>
-          <div style="background: var(--green); color: var(--navy); font-size: 15px; font-weight: 700; padding: 16px; border-radius: 10px; text-align: center;">Accept invitation</div>
-        </div>
-        <div class="screenshot-caption">
-          <span class="cap-icon">💌</span>
-          <span class="cap-text">Invite your partner in 30 seconds — they're set up instantly</span>
-        </div>
+      <div class="screenshot-card reveal">
+        <img src="screenshots/settings.png" alt="Language and currency settings">
+        <div class="screenshot-caption"><span class="cap-icon">🌍</span><span class="cap-text">Three languages · Five currencies · Switch anytime</span></div>
+      </div>
+      <div class="screenshot-card reveal">
+        <img src="screenshots/reports.png" alt="Financial and business expense reports">
+        <div class="screenshot-caption"><span class="cap-icon">📊</span><span class="cap-text">Financial summary reports and business expense exports</span></div>
+      </div>
+      <div class="screenshot-card reveal">
+        <img src="screenshots/invite.png" alt="Partner invite screen">
+        <div class="screenshot-caption"><span class="cap-icon">💌</span><span class="cap-text">Invite your partner in 30 seconds — full access instantly</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FREELANCER SECTION -->
+<!-- FREELANCER -->
 <section class="freelancer" id="freelancers">
-  <div class="freelancer-inner">
+  <div class="two-col">
     <div class="reveal">
       <div class="section-label">For freelancers & contractors</div>
       <h2 class="section-title">Your accountant will love this.</h2>
-      <p class="section-sub">Mix personal and business spending in one app. Toggle any transaction as a business expense, scan the receipt, and at month end download a clean PDF — transaction list on page one, receipt images on page two.</p>
+      <p class="section-sub">Mix personal and business spending in one app. Toggle any transaction as a business expense, scan the receipt, and download a clean PDF at month end.</p>
       <div class="freelancer-steps">
         <div class="freelancer-step">
           <div class="step-num">1</div>
-          <div>
-            <div class="step-title">Toggle "Business expense" on any transaction</div>
-            <div class="step-desc">Add a business memo — "Client lunch, Acme Corp." Receipt is auto-saved for tax purposes.</div>
-          </div>
+          <div><div class="step-title">Toggle "Business expense" on any transaction</div><div class="step-desc">Add a business memo. Receipt is auto-saved for tax purposes.</div></div>
         </div>
         <div class="freelancer-step">
           <div class="step-num">2</div>
-          <div>
-            <div class="step-title">Scan the receipt with your camera</div>
-            <div class="step-desc">AI extracts the amount, merchant, and date. Receipt image is attached to the transaction.</div>
-          </div>
+          <div><div class="step-title">Scan the receipt with your camera</div><div class="step-desc">AI extracts the amount, merchant, and date. Receipt image is attached.</div></div>
         </div>
         <div class="freelancer-step">
           <div class="step-num">3</div>
-          <div>
-            <div class="step-title">Download your expense report PDF</div>
-            <div class="step-desc">Pick a month. Get a branded PDF with every business expense listed, totaled, and all receipt images attached. Ready for your accountant.</div>
-          </div>
+          <div><div class="step-title">Download your expense report PDF</div><div class="step-desc">Pick a month. Get a branded PDF with every business expense listed and all receipt images attached. Ready for your accountant.</div></div>
         </div>
       </div>
     </div>
-    <div class="reveal">
-      <!-- Expense report preview -->
-      <div class="screen-frame">
-        <div class="screen-bar">
-          <div class="screen-dot" style="background:#FF5F57;"></div>
-          <div class="screen-dot" style="background:#FEBC2E;"></div>
-          <div class="screen-dot" style="background:#28C840;"></div>
-          <div style="flex:1; text-align:center; font-size:12px; color:rgba(255,255,255,0.3);">merq-expense-report-2026-04.pdf</div>
-        </div>
-        <div style="background: #1B2B3A; padding: 0;">
-          <div style="background: var(--navy); padding: 24px 28px;">
-            <div style="font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 2px;">Merq <span style="color: var(--green);">Vault</span></div>
-            <div style="font-size: 12px; color: var(--slate);">Business Expense Report · April 2026</div>
-          </div>
-          <div style="background: rgba(46,204,138,0.08); border: 1px solid rgba(46,204,138,0.15); margin: 16px; border-radius: 8px; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <div style="font-size: 12px; color: var(--slate); margin-bottom: 4px;">Total business expenses</div>
-              <div style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; color: var(--green);">$23.52</div>
-            </div>
-            <div style="font-size: 13px; color: var(--muted);">1 transaction</div>
-          </div>
-          <div style="margin: 0 16px 16px; background: rgba(255,255,255,0.03); border-radius: 8px; overflow: hidden;">
-            <div style="background: rgba(255,255,255,0.05); padding: 10px 16px; display: grid; grid-template-columns: 70px 1fr 80px; gap: 8px;">
-              <div style="font-size: 10px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;">Date</div>
-              <div style="font-size: 10px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;">Merchant</div>
-              <div style="font-size: 10px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; text-align: right;">Amount</div>
-            </div>
-            <div style="padding: 12px 16px; display: grid; grid-template-columns: 70px 1fr 80px; gap: 8px; border-top: 1px solid rgba(255,255,255,0.04);">
-              <div style="font-size: 13px; color: var(--muted);">Apr 2</div>
-              <div style="font-size: 13px; color: var(--white);">Starbucks</div>
-              <div style="font-size: 13px; color: var(--white); font-weight: 600; text-align: right;">$23.52</div>
-            </div>
-          </div>
-          <div style="margin: 0 16px 20px; font-size: 11px; color: rgba(136,153,170,0.4); text-align: center;">Generated by Merq Vault · getmerq.com</div>
-        </div>
+    <div class="screen-frame reveal">
+      <div class="screen-bar">
+        <div class="dot" style="background:#FF5F57;"></div>
+        <div class="dot" style="background:#FEBC2E;"></div>
+        <div class="dot" style="background:#28C840;"></div>
+        <div style="flex:1;text-align:center;font-size:12px;color:rgba(255,255,255,0.3);">Add transaction</div>
       </div>
+      <img src="screenshots/transactions.png" alt="Business expense toggle on transaction form">
     </div>
   </div>
 </section>
 
-<!-- PRIVACY SECTION -->
-<section id="privacy">
-  <div class="privacy-inner">
+<!-- PRIVACY -->
+<section>
+  <div class="two-col">
     <div class="reveal">
       <div class="privacy-visual">
-        <span class="lock-icon">🔐</span>
-        <div style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; margin-bottom: 8px;">Your bank stays yours.</div>
-        <div style="font-size: 14px; color: var(--muted); font-weight: 300; margin-bottom: 24px;">We never ask for bank credentials. We never will.</div>
+        <div style="font-size:56px;margin-bottom:16px;">🔐</div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:8px;">Your bank stays yours.</div>
+        <div style="font-size:14px;color:var(--muted);font-weight:300;margin-bottom:24px;">We never ask for bank credentials. We never will.</div>
         <div class="privacy-vs">
           <div class="vs-col good">
             <div class="vs-label">Merq Vault</div>
@@ -859,7 +489,7 @@
             <div class="vs-label">Free apps</div>
             <div class="vs-item">Bank access required</div>
             <div class="vs-item">Data aggregators</div>
-            <div class="vs-item">Data sold to partners</div>
+            <div class="vs-item">Data sold</div>
             <div class="vs-item">Ad-supported</div>
             <div class="vs-item">You are the product</div>
           </div>
@@ -869,96 +499,38 @@
     <div class="reveal">
       <div class="section-label">Privacy first</div>
       <h2 class="section-title">We make money only one way.</h2>
-      <p class="section-sub">When you love it enough to subscribe. That's it. No ads. No referrals. No selling your financial data to credit card companies.</p>
+      <p class="section-sub">When you love it enough to subscribe. No ads. No referrals. No selling your financial data.</p>
       <div class="privacy-points">
-        <div class="privacy-point">
-          <div class="privacy-check">✓</div>
-          <div class="privacy-text"><strong>No bank connection — ever.</strong> You enter transactions manually. 10 seconds each. The friction is the feature.</div>
-        </div>
-        <div class="privacy-point">
-          <div class="privacy-check">✓</div>
-          <div class="privacy-text"><strong>No Plaid, no third-party aggregators.</strong> Your bank credentials never leave your bank.</div>
-        </div>
-        <div class="privacy-point">
-          <div class="privacy-check">✓</div>
-          <div class="privacy-text"><strong>No ads. No data selling.</strong> We're subscription-only. Your data has no value to us except to make the app better for you.</div>
-        </div>
-        <div class="privacy-point">
-          <div class="privacy-check">✓</div>
-          <div class="privacy-text"><strong>Powered by Supabase.</strong> Your data lives in a secure, encrypted database. We use industry-standard security throughout.</div>
-        </div>
+        <div class="privacy-point"><div class="privacy-check">✓</div><div class="privacy-text"><strong>No bank connection — ever.</strong> You enter transactions manually. 10 seconds each. The friction is the feature.</div></div>
+        <div class="privacy-point"><div class="privacy-check">✓</div><div class="privacy-text"><strong>No Plaid, no third-party aggregators.</strong> Your bank credentials never leave your bank.</div></div>
+        <div class="privacy-point"><div class="privacy-check">✓</div><div class="privacy-text"><strong>No ads. No data selling.</strong> Subscription-only. Your data has no value to us except to make the app better for you.</div></div>
+        <div class="privacy-point"><div class="privacy-check">✓</div><div class="privacy-text"><strong>Powered by Supabase.</strong> Secure, encrypted database. Industry-standard security throughout.</div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- COMPARISON -->
-<section style="background: rgba(255,255,255,0.01); border-top: 1px solid var(--border);">
-  <div class="comparison-inner reveal">
-    <div style="text-align: center; margin-bottom: 0;">
+<section style="background:rgba(255,255,255,0.01);border-top:1px solid var(--border);">
+  <div style="max-width:900px;margin:0 auto;" class="reveal">
+    <div style="text-align:center;">
       <div class="section-label">How we compare</div>
       <h2 class="section-title">Half the price. Built for two.</h2>
     </div>
     <table class="comp-table">
       <thead>
         <tr>
-          <th></th>
-          <th class="highlight">Merq Vault</th>
-          <th>YNAB</th>
-          <th>Monarch</th>
-          <th>Honeydue</th>
+          <th></th><th class="hl">Merq Vault</th><th>YNAB</th><th>Monarch</th><th>Honeydue</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="comp-highlight">
-          <td>Price for a couple</td>
-          <td class="comp-yes">$59/year</td>
-          <td>$109/person</td>
-          <td>$100/person</td>
-          <td>Free (ads)</td>
-        </tr>
-        <tr>
-          <td>No bank login required</td>
-          <td class="comp-yes">✓ Never</td>
-          <td>Optional</td>
-          <td class="comp-no">✗ Required</td>
-          <td class="comp-no">✗ Required</td>
-        </tr>
-        <tr>
-          <td>Built specifically for couples</td>
-          <td class="comp-yes">✓ Yes</td>
-          <td>Shared plan add-on</td>
-          <td>Partial</td>
-          <td class="comp-yes">✓ Yes</td>
-        </tr>
-        <tr>
-          <td>Business expense reports</td>
-          <td class="comp-yes">✓ PDF with receipts</td>
-          <td class="comp-no">✗ No</td>
-          <td class="comp-no">✗ No</td>
-          <td class="comp-no">✗ No</td>
-        </tr>
-        <tr>
-          <td>No data selling</td>
-          <td class="comp-yes">✓ Never</td>
-          <td class="comp-yes">✓ Yes</td>
-          <td class="comp-yes">✓ Yes</td>
-          <td class="comp-no">✗ Ad-supported</td>
-        </tr>
-        <tr>
-          <td>Multilingual</td>
-          <td class="comp-yes">EN / ES / HE</td>
-          <td class="comp-no">English only</td>
-          <td class="comp-no">English only</td>
-          <td class="comp-no">English only</td>
-        </tr>
-        <tr>
-          <td>Free trial</td>
-          <td class="comp-yes">45 days, no card</td>
-          <td>34 days</td>
-          <td>7 days</td>
-          <td>Free forever</td>
-        </tr>
+        <tr class="comp-hl"><td>Price for a couple</td><td class="comp-yes">$59/year</td><td>$109/person</td><td>$100/person</td><td>Free (ads)</td></tr>
+        <tr><td>No bank login required</td><td class="comp-yes">✓ Never</td><td>Optional</td><td class="comp-no">✗ Required</td><td class="comp-no">✗ Required</td></tr>
+        <tr><td>Built for couples</td><td class="comp-yes">✓ Yes</td><td>Add-on</td><td>Partial</td><td class="comp-yes">✓ Yes</td></tr>
+        <tr><td>Business expense reports</td><td class="comp-yes">✓ PDF + receipts</td><td class="comp-no">✗ No</td><td class="comp-no">✗ No</td><td class="comp-no">✗ No</td></tr>
+        <tr><td>No data selling</td><td class="comp-yes">✓ Never</td><td class="comp-yes">✓ Yes</td><td class="comp-yes">✓ Yes</td><td class="comp-no">✗ Ad-supported</td></tr>
+        <tr><td>Multilingual</td><td class="comp-yes">EN / ES / HE</td><td class="comp-no">English only</td><td class="comp-no">English only</td><td class="comp-no">English only</td></tr>
+        <tr><td>Free trial</td><td class="comp-yes">45 days, no card</td><td>34 days</td><td>7 days</td><td>Free forever</td></tr>
       </tbody>
     </table>
     <div class="comp-note">* Based on publicly available pricing as of April 2026. Verify independently.</div>
@@ -967,13 +539,11 @@
 
 <!-- PRICING -->
 <section id="pricing">
-  <div class="pricing-inner">
-    <div class="reveal">
-      <div class="section-label">Simple pricing</div>
-      <h2 class="section-title">One price. Two people. Forever.</h2>
-      <p style="font-size: 17px; color: var(--muted); font-weight: 300; margin-top: 16px; max-width: 440px; margin-left: auto; margin-right: auto; line-height: 1.7;">No per-seat pricing. No hidden fees. One subscription covers you and your partner for everything, forever.</p>
-    </div>
-    <div class="pricing-cards reveal">
+  <div style="max-width:900px;margin:0 auto;text-align:center;" class="reveal">
+    <div class="section-label">Simple pricing</div>
+    <h2 class="section-title">One price. Two people. Forever.</h2>
+    <p style="font-size:17px;color:var(--muted);font-weight:300;margin-top:16px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.7;">No per-seat pricing. No hidden fees. One subscription covers you and your partner for everything.</p>
+    <div class="pricing-cards">
       <div class="pricing-card featured">
         <div class="pricing-best">Best value</div>
         <div class="pricing-period">Annual</div>
@@ -985,7 +555,6 @@
           <div class="pricing-feature">Full budgeting & net worth</div>
           <div class="pricing-feature">Business expense reports</div>
           <div class="pricing-feature">Priority support</div>
-          <div class="pricing-feature">New features first</div>
         </div>
       </div>
       <div class="pricing-card">
@@ -999,9 +568,9 @@
         </div>
       </div>
     </div>
-    <div class="pricing-cta reveal">
-      <a href="https://merqvault.com/signup" class="btn-primary" style="font-size: 17px; padding: 18px 40px;">Start your 45-day free trial →</a>
-      <p class="pricing-sub">No credit card required · Cancel anytime · Secure checkout by Paddle</p>
+    <div style="margin-top:48px;">
+      <a href="https://merqvault.com/signup" class="btn-primary" style="font-size:17px;padding:18px 40px;">Start your 45-day free trial →</a>
+      <p style="font-size:13px;color:var(--muted-dark);margin-top:16px;">No credit card required · Cancel anytime · Secure checkout by Paddle</p>
     </div>
   </div>
 </section>
@@ -1009,7 +578,7 @@
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-grid">
-    <div class="footer-brand">
+    <div>
       <a href="/" class="footer-logo">Merq <span>Vault</span></a>
       <div class="footer-brand-sub">Privacy-first personal finance for couples and individuals. No bank login. No data selling. Just clarity.</div>
     </div>
@@ -1023,9 +592,9 @@
     <div class="footer-col">
       <h4>Company</h4>
       <a href="https://getmerq.com">Merq Software</a>
-      <a href="https://merqvault.com/privacy.html">Privacy Policy</a>
-      <a href="https://merqvault.com/terms.html">Terms of Service</a>
-      <a href="https://merqvault.com/refund.html">Refund Policy</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="/refund.html">Refund Policy</a>
       <a href="mailto:hello@getmerq.com">Contact</a>
     </div>
   </div>
@@ -1039,11 +608,10 @@
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
       }
     });
   }, { threshold: 0.08 });
-
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
