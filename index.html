@@ -29,7 +29,6 @@ body{background:var(--cream);color:var(--text-dark);font-family:'Plus Jakarta Sa
 .grad-gm{background:var(--grad-gm);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .grad-pb{background:var(--grad-pb);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 56px;transition:all 0.4s;}
 nav.sl{background:rgba(250,247,242,0.95);backdrop-filter:blur(24px);border-bottom:1px solid var(--border-dark);padding:14px 56px;box-shadow:0 2px 20px rgba(30,16,64,0.06);}
 nav.sd{background:rgba(11,18,32,0.95);backdrop-filter:blur(24px);border-bottom:1px solid var(--border-light);padding:14px 56px;}
@@ -43,7 +42,6 @@ nav.sd{background:rgba(11,18,32,0.95);backdrop-filter:blur(24px);border-bottom:1
 .nav-cta{background:var(--grad-gm);color:#052e16;padding:10px 24px;border-radius:100px;font-size:14px;font-weight:700;text-decoration:none;transition:all 0.25s;box-shadow:0 4px 20px var(--glow-g);}
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 30px var(--glow-g);filter:brightness(1.08);}
 
-/* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 48px 80px;position:relative;overflow:hidden;background:var(--cream);}
 .hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(30,16,64,0.05) 1px,transparent 1px);background-size:32px 32px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 80%);pointer-events:none;}
 .orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;}
@@ -55,27 +53,21 @@ nav.sd{background:rgba(11,18,32,0.95);backdrop-filter:blur(24px);border-bottom:1
 .hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.2);color:var(--purple);font-size:12px;font-weight:700;padding:7px 18px;border-radius:100px;margin-bottom:32px;letter-spacing:0.05em;text-transform:uppercase;animation:fadeUp 0.7s ease both;position:relative;z-index:1;}
 .pill-dot{width:6px;height:6px;background:var(--purple);border-radius:50%;animation:blink 2s infinite;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
-
 .hero h1{font-family:'Fraunces',serif;font-size:clamp(56px,8vw,100px);font-weight:900;line-height:0.95;letter-spacing:-3px;color:var(--plum);margin-bottom:28px;animation:fadeUp 0.7s ease 0.1s both;position:relative;z-index:1;}
-
 .hero-sub{font-size:clamp(16px,2vw,20px);color:var(--muted-dark);line-height:1.7;max-width:580px;font-weight:400;animation:fadeUp 0.7s ease 0.2s both;position:relative;z-index:1;margin-bottom:40px;}
-
 .hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;animation:fadeUp 0.7s ease 0.3s both;position:relative;z-index:1;}
 .btn-p{background:var(--grad-gm);color:#052e16;padding:15px 32px;border-radius:100px;font-size:15px;font-weight:700;text-decoration:none;transition:all 0.25s;box-shadow:0 6px 24px var(--glow-g);display:inline-flex;align-items:center;gap:8px;}
 .btn-p:hover{transform:translateY(-2px);box-shadow:0 16px 40px var(--glow-g);filter:brightness(1.08);}
 .btn-g{background:none;border:2px solid var(--border-dark);color:var(--plum);padding:14px 28px;border-radius:100px;font-size:15px;font-weight:600;text-decoration:none;transition:all 0.2s;}
 .btn-g:hover{border-color:var(--purple);color:var(--purple);}
-
 .scroll-ind{position:relative;z-index:1;margin-top:56px;display:flex;flex-direction:column;align-items:center;gap:8px;animation:fadeUp 0.7s ease 0.4s both;color:var(--muted-dark);font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;}
 .scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,rgba(30,16,64,0.3),transparent);}
 
-/* WAVES */
 .wave{height:120px;background:var(--cream);position:relative;overflow:hidden;margin-top:-1px;}
 .wave::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:var(--navy);clip-path:ellipse(55% 100% at 50% 100%);}
 .wave-rev{height:100px;background:var(--bg);position:relative;overflow:hidden;}
 .wave-rev::after{content:'';position:absolute;bottom:0;left:0;right:0;height:100px;background:var(--cream);clip-path:ellipse(55% 100% at 50% 100%);}
 
-/* TICKER */
 .ticker{padding:22px 0;overflow:hidden;position:relative;background:var(--navy);border-top:1px solid var(--border-light);}
 .ticker::before,.ticker::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;}
 .ticker::before{left:0;background:linear-gradient(90deg,var(--navy),transparent);}
@@ -84,10 +76,8 @@ nav.sd{background:rgba(11,18,32,0.95);backdrop-filter:blur(24px);border-bottom:1
 @keyframes tickScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .ti{display:flex;align-items:center;gap:10px;padding:0 28px;font-size:13px;font-weight:600;color:var(--muted-light);white-space:nowrap;}
 
-/* DARK */
 .dark-zone{background:var(--bg);}
 
-/* PHILOSOPHY */
 .phil{padding:100px 56px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
 .eyebrow{font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
 .eyebrow::before{content:'';width:22px;height:2px;border-radius:2px;}
@@ -96,7 +86,6 @@ nav.sd{background:rgba(11,18,32,0.95);backdrop-filter:blur(24px);border-bottom:1
 .big-h{font-family:'Fraunces',serif;font-size:clamp(32px,4vw,52px);font-weight:900;letter-spacing:-1.5px;line-height:1.06;color:var(--text-light);}
 .body-txt{font-size:16px;color:var(--muted-light);line-height:1.8;margin-top:16px;}
 .body-txt p+p{margin-top:14px;}
-
 .pillars{display:flex;flex-direction:column;gap:24px;}
 .pillar{display:flex;gap:16px;align-items:flex-start;padding:20px;border-radius:18px;border:1px solid transparent;transition:all 0.25s;}
 .pillar:hover{background:var(--card);border-color:var(--border-light);}
@@ -107,11 +96,9 @@ nav.sd{background:rgba(11,18,32,0.95);backdrop-filter:blur(24px);border-bottom:1
 .p-title{font-size:15px;font-weight:700;color:var(--text-light);margin-bottom:4px;}
 .p-desc{font-size:14px;color:var(--muted-light);line-height:1.6;}
 
-/* PRODUCTS */
 .products{padding:80px 56px 120px;max-width:1100px;margin:0 auto;}
 .prod-hdr{text-align:center;margin-bottom:56px;}
 .prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-
 .pc{background:var(--card);border:1px solid var(--border-light);border-radius:24px;padding:36px 28px;text-decoration:none;color:inherit;transition:all 0.3s;display:flex;flex-direction:column;position:relative;overflow:hidden;}
 .pc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;opacity:0;transition:opacity 0.3s;}
 .pc.vault::before{background:var(--grad-gm);}
@@ -122,12 +109,10 @@ nav.sd{background:rgba(11,18,32,0.95);backdrop-filter:blur(24px);border-bottom:1
 .pc.vault:hover{border-color:rgba(34,197,94,0.25);box-shadow:0 20px 50px rgba(34,197,94,0.08);}
 .pc.legacy:hover{border-color:rgba(139,92,246,0.25);box-shadow:0 20px 50px rgba(139,92,246,0.08);}
 .pc.works:hover{border-color:rgba(251,146,60,0.25);box-shadow:0 20px 50px rgba(251,146,60,0.08);}
-
 .pbadge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;padding:4px 12px;border-radius:100px;margin-bottom:24px;width:fit-content;letter-spacing:0.04em;}
 .blive{background:rgba(34,197,94,0.12);color:var(--mint);border:1px solid rgba(34,197,94,0.25);}
 .bsoon{background:rgba(139,92,246,0.12);color:var(--purple);border:1px solid rgba(139,92,246,0.25);}
 .bdev{background:rgba(251,146,60,0.12);color:var(--orange);border:1px solid rgba(251,146,60,0.25);}
-
 .p-icon{font-size:38px;margin-bottom:16px;display:block;}
 .p-name{font-family:'Fraunces',serif;font-size:26px;font-weight:900;margin-bottom:4px;color:var(--text-light);letter-spacing:-0.5px;}
 .p-name.vc span{background:var(--grad-gm);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
@@ -145,11 +130,9 @@ nav.sd{background:rgba(11,18,32,0.95);backdrop-filter:blur(24px);border-bottom:1
 .p-link.va{color:var(--mint);}
 .p-link.la{color:var(--purple);}
 .p-link.wa{color:var(--orange);}
-.p-link.dim{color:var(--muted-light);}
 .arrow{transition:transform 0.2s;display:inline-block;}
 .pc:hover .arrow{transform:translateX(4px);}
 
-/* FOOTER */
 .footer{background:var(--cream-d);border-top:1px solid var(--border-dark);padding:56px 56px 32px;}
 .foot-in{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;margin-bottom:40px;}
 .foot-logo{font-family:'Fraunces',serif;font-size:22px;font-weight:900;color:var(--plum);text-decoration:none;}
@@ -191,23 +174,17 @@ nav.sd{background:rgba(11,18,32,0.95);backdrop-filter:blur(24px);border-bottom:1
   </div>
 </nav>
 
-<!-- LIGHT HERO -->
 <section class="hero">
   <div class="orb orb1"></div>
   <div class="orb orb2"></div>
   <div class="orb orb3"></div>
-
   <div class="hero-pill"><span class="pill-dot"></span>Simple · Private · Built for real life</div>
-
   <h1>Built for<br><em class="grad-pg">real people.</em></h1>
-
   <p class="hero-sub">Merq builds software that feels like it was made specifically for you — because it was. Private by design. Simple by choice. Powerful where it counts.</p>
-
   <div class="hero-actions">
     <a href="/vault.html" class="btn-p">Try Merq Vault →</a>
     <a href="#philosophy" class="btn-g">Our approach ↓</a>
   </div>
-
   <div class="scroll-ind">
     <div class="scroll-line"></div>
     <span>Scroll</span>
@@ -216,7 +193,6 @@ nav.sd{background:rgba(11,18,32,0.95);backdrop-filter:blur(24px);border-bottom:1
 
 <div class="wave"></div>
 
-<!-- DARK ZONE -->
 <div class="dark-zone">
 
   <div class="ticker">
@@ -240,7 +216,6 @@ nav.sd{background:rgba(11,18,32,0.95);backdrop-filter:blur(24px);border-bottom:1
     </div>
   </div>
 
-  <!-- PHILOSOPHY -->
   <div id="philosophy" class="phil">
     <div class="reveal-left">
       <div class="eyebrow em">Our approach</div>
@@ -266,7 +241,6 @@ nav.sd{background:rgba(11,18,32,0.95);backdrop-filter:blur(24px);border-bottom:1
     </div>
   </div>
 
-  <!-- PRODUCTS -->
   <div id="products" class="products">
     <div class="prod-hdr reveal">
       <div class="eyebrow ep" style="justify-content:center;">The Merq suite</div>
@@ -316,17 +290,16 @@ nav.sd{background:rgba(11,18,32,0.95);backdrop-filter:blur(24px);border-bottom:1
           <div class="p-feat">Order & production management</div>
           <div class="p-feat">Built for decorators</div>
         </div>
-        <div class="p-link wa dim">Coming soon <span class="arrow">→</span></div>
+        <div class="p-link wa">Coming soon <span class="arrow">→</span></div>
       </div>
 
     </div>
   </div>
 
-</div><!-- end dark -->
+</div>
 
 <div class="wave-rev"></div>
 
-<!-- LIGHT FOOTER -->
 <footer class="footer">
   <div class="foot-in">
     <div>
@@ -337,13 +310,13 @@ nav.sd{background:rgba(11,18,32,0.95);backdrop-filter:blur(24px);border-bottom:1
       <a href="/vault.html">Merq Vault</a>
       <a href="https://getmerq.com/privacy.html">Privacy</a>
       <a href="https://getmerq.com/terms.html">Terms</a>
-      <a href="/cdn-cgi/l/email-protection#e088858c8c8fa08785948d859291ce838f8d">Contact</a>
+      <a href="mailto:hello@getmerq.com">Contact</a>
     </div>
   </div>
   <div class="foot-btm">© 2026 Merq Software · Texas · Made with intention.</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const nav = document.getElementById('nav');
 const links = document.querySelectorAll('.nl');
 const dark = document.querySelector('.dark-zone');
@@ -370,3 +343,14 @@ const obs = new IntersectionObserver((entries) => {
       obs.unobserve(e.target);
     }
   });
+}, { threshold: 0.01, rootMargin: '0px 0px -20px 0px' });
+
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => obs.observe(el));
+
+// Fallback — make everything visible after 3s in case observer fails
+setTimeout(() => {
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => el.classList.add('visible'));
+}, 3000);
+</script>
+</body>
+</html>
