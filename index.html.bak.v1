@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merq — Software built around you.</title>
+<meta name="description" content="Merq builds software for real life — private, simple tools for money, family, and work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700;1,9..144,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --light:   #F7F6F4;
+  --dark:    #0B1220;
+  --dark-2:  #111827;
+  --plum:    #1E1040;
+  --violet:  #8B5CF6;
+  --blue:    #38BDF8;
+  --emerald: #10B981;
+  --muted-l: #6B7280;
+  --muted-d: rgba(255,255,255,0.5);
+  --border-l: rgba(30,16,64,0.08);
+  --border-d: rgba(255,255,255,0.08);
+  --grad: linear-gradient(135deg, #8B5CF6, #38BDF8);
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--light); color: var(--plum); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 64px;
+  transition: background 0.4s, border-color 0.4s;
+}
+nav.scrolled {
+  background: rgba(247,246,244,0.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-l);
+}
+.nav-logo {
+  font-family: 'Fraunces', serif; font-weight: 900; font-size: 24px;
+  color: var(--plum); text-decoration: none; letter-spacing: -0.5px;
+}
+.nav-logo span { color: var(--violet); font-style: italic; }
+.nav-links { display: flex; align-items: center; gap: 40px; }
+.nav-links a {
+  color: var(--muted-l); text-decoration: none;
+  font-size: 14px; font-weight: 500; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--plum); }
+@media(max-width:768px){ nav { padding: 16px 24px; } .nav-links { display: none; } }
+
+/* ─── HERO (LIGHT) ─── */
+.hero {
+  min-height: 100vh; background: var(--light);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 140px 64px 100px; text-align: center; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(139,92,246,0.06) 0%, transparent 70%);
+}
+.hero-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--violet); margin-bottom: 32px; opacity: 0.8;
+}
+.hero-h1 {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(52px, 8vw, 96px); line-height: 1.0;
+  color: var(--plum); max-width: 900px; margin: 0 auto 32px;
+  letter-spacing: -2px;
+}
+.hero-h1 em { font-style: italic; color: var(--violet); }
+.hero-sub {
+  font-size: clamp(17px, 2vw, 22px); color: var(--muted-l); font-weight: 400;
+  max-width: 560px; margin: 0 auto 64px; line-height: 1.7;
+}
+.hero-ribbon {
+  display: flex; align-items: center; gap: 32px; flex-wrap: wrap; justify-content: center;
+}
+.hero-ribbon-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; color: var(--muted-l);
+}
+.hero-ribbon-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--violet); opacity: 0.5; }
+
+/* ─── MANIFESTO (DARK) ─── */
+.manifesto {
+  background: var(--dark); padding: 140px 64px;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.manifesto-statement {
+  font-family: 'Fraunces', serif; font-weight: 300; font-style: italic;
+  font-size: clamp(36px, 5vw, 68px); color: rgba(255,255,255,0.9);
+  line-height: 1.2; max-width: 860px; margin-bottom: 48px; letter-spacing: -1px;
+}
+.manifesto-statement strong { font-weight: 900; font-style: normal; color: #fff; }
+.manifesto-sub {
+  font-size: 17px; color: var(--muted-d); max-width: 520px; line-height: 1.8; margin-bottom: 80px;
+}
+.manifesto-observations {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--border-d); border: 1px solid var(--border-d); border-radius: 20px;
+  overflow: hidden; max-width: 860px; width: 100%;
+}
+.manifesto-obs {
+  background: var(--dark-2); padding: 40px 36px; text-align: left;
+}
+.manifesto-obs-label { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-d); margin-bottom: 16px; }
+.manifesto-obs-text { font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+.manifesto-obs-text s { color: rgba(255,255,255,0.25); text-decoration-color: rgba(255,255,255,0.15); }
+.manifesto-transition {
+  margin-top: 60px; font-family: 'Fraunces', serif; font-weight: 700; font-style: italic;
+  font-size: clamp(22px, 3vw, 36px); color: rgba(255,255,255,0.5);
+}
+.manifesto-transition em { color: #fff; font-style: normal; }
+@media(max-width:768px){ .manifesto-observations { grid-template-columns: 1fr; } .manifesto { padding: 80px 24px; } }
+
+/* ─── PRINCIPLES (DARK) ─── */
+.principles { background: var(--dark); padding: 0 64px 140px; }
+.principles-inner { max-width: 1100px; margin: 0 auto; }
+.principles-label { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--violet); margin-bottom: 20px; }
+.principles-h2 {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(36px, 4vw, 56px); color: #fff; line-height: 1.1; margin-bottom: 72px;
+}
+.principles-h2 em { font-style: italic; color: var(--violet); }
+.principles-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; }
+.principle { border-top: 1px solid var(--border-d); padding-top: 32px; }
+.principle-num {
+  font-family: 'Fraunces', serif; font-weight: 900; font-size: 64px;
+  background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  line-height: 1; margin-bottom: 24px; letter-spacing: -2px;
+}
+.principle h3 { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 14px; }
+.principle p { font-size: 15px; color: var(--muted-d); line-height: 1.8; }
+@media(max-width:768px){ .principles-grid { grid-template-columns: 1fr; } .principles { padding: 0 24px 80px; } }
+
+/* ─── PRODUCTS (LIGHT) ─── */
+.products { background: var(--light); padding: 140px 64px; }
+.products-inner { max-width: 1100px; margin: 0 auto; }
+.products-label { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--violet); margin-bottom: 20px; }
+.products-h2 {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(36px, 4vw, 56px); color: var(--plum); line-height: 1.1; margin-bottom: 16px;
+}
+.products-h2 em { font-style: italic; color: var(--violet); }
+.products-sub { font-size: 17px; color: var(--muted-l); max-width: 520px; line-height: 1.7; margin-bottom: 72px; }
+.products-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+
+.product-card {
+  background: #fff; border-radius: 24px; padding: 40px;
+  border: 1px solid var(--border-l);
+  box-shadow: 0 2px 20px rgba(30,16,64,0.05);
+  display: flex; flex-direction: column; gap: 0;
+  text-decoration: none; color: inherit;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  position: relative; overflow: hidden;
+}
+.product-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  transition: opacity 0.3s;
+}
+.product-card.vault::before { background: linear-gradient(90deg, #10B981, #34D399); }
+.product-card.legacy::before { background: linear-gradient(90deg, #8B5CF6, #38BDF8); }
+.product-card.works::before { background: linear-gradient(90deg, #F59E0B, #EF4444); opacity: 0.4; }
+.product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(30,16,64,0.1); }
+.product-card.vault:hover { border-color: rgba(16,185,129,0.2); }
+.product-card.legacy:hover { border-color: rgba(139,92,246,0.2); }
+.product-card.works:hover { border-color: rgba(245,158,11,0.15); }
+
+.product-status {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  margin-bottom: 28px; padding: 5px 12px; border-radius: 100px; width: fit-content;
+}
+.product-status.live { background: rgba(16,185,129,0.1); color: #059669; }
+.product-status.soon { background: rgba(245,158,11,0.1); color: #D97706; }
+.product-status-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+.product-icon { font-size: 36px; margin-bottom: 20px; }
+.product-name {
+  font-family: 'Fraunces', serif; font-weight: 900; font-size: 28px;
+  color: var(--plum); margin-bottom: 6px; line-height: 1;
+}
+.product-name span.vault-accent { color: #10B981; font-style: italic; }
+.product-name span.legacy-accent { color: #8B5CF6; font-style: italic; }
+.product-name span.works-accent { color: #F59E0B; font-style: italic; }
+.product-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-l); margin-bottom: 20px; }
+.product-hook {
+  font-size: 15px; color: #374151; line-height: 1.7; margin-bottom: 28px;
+  padding-bottom: 28px; border-bottom: 1px solid var(--border-l);
+}
+.product-hook strong { color: var(--plum); }
+.product-feats { display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; flex: 1; }
+.product-feat {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: #374151; line-height: 1.5;
+}
+.product-feat-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+.vault .product-feat-dot { background: #10B981; }
+.legacy .product-feat-dot { background: #8B5CF6; }
+.works .product-feat-dot { background: #F59E0B; }
+.product-link {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 700; margin-top: auto;
+  transition: gap 0.2s;
+}
+.vault .product-link { color: #10B981; }
+.legacy .product-link { color: #8B5CF6; }
+.works .product-link { color: #F59E0B; }
+.product-card:hover .product-link { gap: 12px; }
+.product-price {
+  font-size: 12px; color: var(--muted-l); margin-top: 8px;
+}
+@media(max-width:900px){ .products-grid { grid-template-columns: 1fr; } .products { padding: 80px 24px; } }
+
+/* ─── UNLOCK MOMENT (DARK) ─── */
+.unlock { background: var(--dark); padding: 140px 64px; }
+.unlock-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+.unlock-text {}
+.unlock-label { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--violet); margin-bottom: 20px; }
+.unlock-h2 {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(32px, 3.5vw, 52px); color: #fff; line-height: 1.1; margin-bottom: 24px;
+}
+.unlock-h2 em { font-style: italic; color: var(--violet); }
+.unlock-p { font-size: 16px; color: var(--muted-d); line-height: 1.8; margin-bottom: 16px; }
+.unlock-link {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 24px;
+  font-size: 14px; font-weight: 700; color: var(--violet); text-decoration: none;
+  transition: gap 0.2s;
+}
+.unlock-link:hover { gap: 14px; }
+
+.unlock-visual {
+  background: linear-gradient(160deg, #1C2333 0%, #161D2B 100%);
+  border-radius: 24px; padding: 40px; border: 1px solid var(--border-d);
+}
+.unlock-vis-title {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted-d); margin-bottom: 28px; text-align: center;
+}
+.unlock-guardians { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+.unlock-guardian {
+  display: flex; align-items: center; gap: 14px;
+  background: rgba(255,255,255,0.03); border-radius: 12px; padding: 14px 16px;
+  border: 1px solid rgba(255,255,255,0.06); transition: all 0.5s;
+}
+.unlock-guardian.approved { border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.05); }
+.unlock-guardian.pending { border-color: rgba(245,158,11,0.2); }
+.unlock-guardian-avatar { font-size: 22px; }
+.unlock-guardian-info { flex: 1; }
+.unlock-guardian-name { font-size: 14px; font-weight: 600; color: #fff; }
+.unlock-guardian-role { font-size: 12px; color: var(--muted-d); margin-top: 2px; }
+.unlock-badge {
+  font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 100px;
+}
+.unlock-badge.approved { background: rgba(16,185,129,0.15); color: #34D399; }
+.unlock-badge.pending { background: rgba(245,158,11,0.15); color: #FCD34D; }
+.unlock-divider {
+  text-align: center; font-size: 12px; color: var(--muted-d); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.unlock-divider::before, .unlock-divider::after { content: ''; flex: 1; height: 1px; background: var(--border-d); }
+.unlock-result {
+  background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(56,189,248,0.1));
+  border: 1px solid rgba(139,92,246,0.25); border-radius: 12px; padding: 20px;
+  text-align: center;
+}
+.unlock-result-text { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.unlock-result-sub { font-size: 12px; color: var(--muted-d); }
+@media(max-width:900px){ .unlock-inner { grid-template-columns: 1fr; gap: 48px; } .unlock { padding: 80px 24px; } }
+
+/* ─── VAULT MOMENT (LIGHT) ─── */
+.vault-moment { background: var(--light); padding: 140px 64px; }
+.vault-moment-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+.vault-moment-visual {
+  background: #fff; border-radius: 24px; padding: 36px;
+  border: 1px solid var(--border-l); box-shadow: 0 8px 40px rgba(30,16,64,0.07);
+}
+.vm-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.vm-title { font-size: 13px; font-weight: 700; color: var(--plum); }
+.vm-badge { background: rgba(16,185,129,0.1); color: #059669; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 100px; }
+.vm-receipt {
+  background: #F9FAFB; border-radius: 12px; padding: 20px;
+  border: 1px solid #E5E7EB; margin-bottom: 16px;
+}
+.vm-receipt-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #F3F4F6; }
+.vm-receipt-row:last-child { border-bottom: none; }
+.vm-receipt-label { font-size: 13px; color: #6B7280; }
+.vm-receipt-value { font-size: 13px; font-weight: 600; color: var(--plum); }
+.vm-receipt-value.category { color: #10B981; }
+.vm-ai-note {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.15);
+  border-radius: 10px; padding: 12px 14px; font-size: 13px; color: #374151;
+}
+.vm-ai-icon { font-size: 16px; flex-shrink: 0; }
+.vm-report {
+  margin-top: 16px; background: var(--plum); border-radius: 12px; padding: 20px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.vm-report-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+.vm-report-value { font-size: 22px; font-weight: 800; color: #fff; }
+.vm-report-link { font-size: 13px; font-weight: 700; color: #34D399; text-decoration: none; }
+
+.vault-moment-text {}
+.vault-moment-label { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #10B981; margin-bottom: 20px; }
+.vault-moment-h2 {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(32px, 3.5vw, 52px); color: var(--plum); line-height: 1.1; margin-bottom: 24px;
+}
+.vault-moment-h2 em { font-style: italic; color: #10B981; }
+.vault-moment-p { font-size: 16px; color: var(--muted-l); line-height: 1.8; margin-bottom: 16px; }
+.vault-moment-link {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 24px;
+  font-size: 14px; font-weight: 700; color: #10B981; text-decoration: none;
+  transition: gap 0.2s;
+}
+.vault-moment-link:hover { gap: 14px; }
+@media(max-width:900px){ .vault-moment-inner { grid-template-columns: 1fr; gap: 48px; } .vault-moment { padding: 80px 24px; } .vault-moment-visual { order: -1; } }
+
+/* ─── TRUST (DARK) ─── */
+.trust { background: var(--dark); padding: 120px 64px; text-align: center; }
+.trust-inner { max-width: 900px; margin: 0 auto; }
+.trust-h2 {
+  font-family: 'Fraunces', serif; font-weight: 300; font-style: italic;
+  font-size: clamp(32px, 4vw, 56px); color: rgba(255,255,255,0.85);
+  line-height: 1.2; margin-bottom: 80px; letter-spacing: -1px;
+}
+.trust-h2 strong { font-weight: 900; font-style: normal; color: #fff; }
+.trust-pills { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.trust-pill {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--border-d);
+  border-radius: 100px; padding: 12px 20px;
+  font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.7);
+}
+@media(max-width:768px){ .trust { padding: 80px 24px; } }
+
+/* ─── CLOSING (LIGHT) ─── */
+.closing { background: var(--light); padding: 140px 64px; text-align: center; }
+.closing-h2 {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(42px, 6vw, 80px); color: var(--plum);
+  line-height: 1.05; margin-bottom: 24px; letter-spacing: -2px;
+}
+.closing-h2 em { font-style: italic; color: var(--violet); }
+.closing-sub { font-size: 18px; color: var(--muted-l); max-width: 480px; margin: 0 auto 56px; line-height: 1.7; }
+.closing-products { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.closing-btn {
+  display: flex; align-items: center; gap: 8px;
+  padding: 16px 32px; border-radius: 100px;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px;
+  text-decoration: none; transition: all 0.2s;
+}
+.closing-btn.vault { background: #10B981; color: #fff; box-shadow: 0 8px 24px rgba(16,185,129,0.25); }
+.closing-btn.vault:hover { background: #059669; transform: translateY(-2px); }
+.closing-btn.legacy { background: var(--grad); color: #fff; box-shadow: 0 8px 24px rgba(139,92,246,0.25); }
+.closing-btn.legacy:hover { opacity: 0.9; transform: translateY(-2px); }
+.closing-guarantee { margin-top: 24px; font-size: 13px; color: #9CA3AF; }
+@media(max-width:768px){ .closing { padding: 80px 24px; } }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--plum); padding: 56px 64px 40px;
+}
+.foot-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 48px; flex-wrap: wrap; gap: 32px; }
+.foot-logo { font-family: 'Fraunces', serif; font-weight: 900; font-size: 24px; color: #fff; text-decoration: none; }
+.foot-logo span { color: var(--violet); font-style: italic; }
+.foot-tagline { font-size: 14px; color: rgba(255,255,255,0.4); margin-top: 8px; }
+.foot-cols { display: flex; gap: 64px; }
+.foot-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 16px; }
+.foot-col a { display: block; font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+.foot-col a:hover { color: #fff; }
+.foot-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.foot-copy { font-size: 13px; color: rgba(255,255,255,0.25); }
+@media(max-width:768px){ footer { padding: 48px 24px 32px; } .foot-cols { flex-direction: column; gap: 32px; } .foot-top { flex-direction: column; } }
+
+/* ─── ANIMATIONS ─── */
+.fade-up { opacity: 1; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="/" class="nav-logo">Merq<span>.</span></a>
+  <div class="nav-links">
+    <a href="#products">Products</a>
+    <a href="#philosophy">Philosophy</a>
+    <a href="mailto:hello@getmerq.com">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Merq Software · Texas · Est. 2025</div>
+  <h1 class="hero-h1">Software built<br /><em>around you.</em></h1>
+  <p class="hero-sub">Not built for the average user. Not built to harvest your data. Built for the real complexity of your actual life.</p>
+  <div class="hero-ribbon">
+    <div class="hero-ribbon-item"><div class="hero-ribbon-dot"></div>No data sold. Ever.</div>
+    <div class="hero-ribbon-item"><div class="hero-ribbon-dot"></div>Private by design</div>
+    <div class="hero-ribbon-item"><div class="hero-ribbon-dot"></div>Subscription funded</div>
+    <div class="hero-ribbon-item"><div class="hero-ribbon-dot"></div>Built in Texas</div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto" id="philosophy">
+  <p class="manifesto-statement fade-up">
+    Most software is built for <strong>the average user.</strong><br/>Real life is not average.
+  </p>
+  <p class="manifesto-sub fade-up">The software industry optimized for scale. That meant building for nobody in particular — and selling your attention and data to make up for it. We think that's wrong.</p>
+  <div class="manifesto-observations fade-up">
+    <div class="manifesto-obs">
+      <div class="manifesto-obs-label">What most software does</div>
+      <div class="manifesto-obs-text"><s>Tracks everything you do</s><br/><br/><s>Sells your data to advertisers</s><br/><br/><s>Gets more complicated every year</s></div>
+    </div>
+    <div class="manifesto-obs">
+      <div class="manifesto-obs-label">What we do instead</div>
+      <div class="manifesto-obs-text">Stores only what you give us<br/><br/>Makes money when you subscribe<br/><br/>Gets simpler, not harder</div>
+    </div>
+    <div class="manifesto-obs">
+      <div class="manifesto-obs-label">The result</div>
+      <div class="manifesto-obs-text">Software that actually respects your time, your privacy, and the real complexity of your life.</div>
+    </div>
+  </div>
+  <p class="manifesto-transition fade-up">We think software should do <em>the opposite.</em></p>
+</section>
+
+<!-- PRINCIPLES -->
+<section class="principles" id="principles">
+  <div class="principles-inner">
+    <div class="principles-label fade-up">How we build</div>
+    <h2 class="principles-h2 fade-up">Three principles.<br/><em>Every product.</em></h2>
+    <div class="principles-grid">
+      <div class="principle fade-up">
+        <div class="principle-num">01</div>
+        <h3>Privacy first, always</h3>
+        <p>Your data never trains models, never gets sold, never leaves without your permission. That's not a feature — it's a requirement.</p>
+      </div>
+      <div class="principle fade-up">
+        <div class="principle-num">02</div>
+        <h3>Simple enough to actually use</h3>
+        <p>Complexity is easy. Simplicity is hard. We do the hard work so you don't have to think about software — you just use it.</p>
+      </div>
+      <div class="principle fade-up">
+        <div class="principle-num">03</div>
+        <h3>Honest business model</h3>
+        <p>We make money when you subscribe. Not when we sell your information, not through ads. Simple, aligned, honest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="products-inner">
+    <div class="products-label fade-up">The Merq suite</div>
+    <h2 class="products-h2 fade-up">Built for real life.<br/><em>All of it.</em></h2>
+    <p class="products-sub fade-up">Three products. One philosophy. Each one built for a specific, real problem — and nothing else.</p>
+    <div class="products-grid">
+
+      <!-- VAULT -->
+      <a href="https://merqvault.com" class="product-card vault fade-up">
+        <div class="product-status live"><div class="product-status-dot"></div>Live now</div>
+        <div class="product-icon">🔐</div>
+        <div class="product-name">Merq <span class="vault-accent">Vault</span></div>
+        <div class="product-tag">Personal Finance for Households</div>
+        <p class="product-hook">Snap a photo of any receipt. <strong>Merq Vault reads it, categorizes it, and builds your monthly spending report automatically.</strong> No bank login. No data shared. Just clarity.</p>
+        <div class="product-feats">
+          <div class="product-feat"><div class="product-feat-dot"></div>AI receipt scanning & monthly reports</div>
+          <div class="product-feat"><div class="product-feat-dot"></div>Budget together — both partners, one subscription</div>
+          <div class="product-feat"><div class="product-feat-dot"></div>Net worth, bills, and debt tracking</div>
+          <div class="product-feat"><div class="product-feat-dot"></div>No bank connection ever required</div>
+        </div>
+        <div class="product-link">Try Merq Vault <span>→</span></div>
+        <div class="product-price">$59/year · 45-day free trial</div>
+      </a>
+
+      <!-- LEGACY -->
+      <a href="https://merqlegacy.com" class="product-card legacy fade-up">
+        <div class="product-status live"><div class="product-status-dot"></div>Live now</div>
+        <div class="product-icon">🗝️</div>
+        <div class="product-name">Merq <span class="legacy-accent">Legacy</span></div>
+        <div class="product-tag">Family Estate Organizer</div>
+        <p class="product-hook">Your vault is locked — <strong>and only the people you choose can open it.</strong> No passwords. No lawyers. No death certificates. Three trusted people approve together, or it stays closed.</p>
+        <div class="product-feats">
+          <div class="product-feat"><div class="product-feat-dot"></div>Vault Guardian unlock system — 3 people must agree</div>
+          <div class="product-feat"><div class="product-feat-dot"></div>Key contacts, accounts, assets, documents</div>
+          <div class="product-feat"><div class="product-feat-dot"></div>Final wishes & letters to loved ones</div>
+          <div class="product-feat"><div class="product-feat-dot"></div>Private — no third-party access. Ever.</div>
+        </div>
+        <div class="product-link">Organize your legacy <span>→</span></div>
+        <div class="product-price">$69/year · 30-day money-back guarantee</div>
+      </a>
+
+      <!-- WORKS -->
+      <div class="product-card works fade-up">
+        <div class="product-status soon"><div class="product-status-dot"></div>Coming soon</div>
+        <div class="product-icon">🧵</div>
+        <div class="product-name">Merq <span class="works-accent">Works</span></div>
+        <div class="product-tag">Apparel & Production</div>
+        <p class="product-hook">Store-building software for embroidery shops and apparel producers. <strong>Build client storefronts, manage orders, and run your production workflow</strong> — all in one place.</p>
+        <div class="product-feats">
+          <div class="product-feat"><div class="product-feat-dot"></div>Custom client storefronts</div>
+          <div class="product-feat"><div class="product-feat-dot"></div>Order & production management</div>
+          <div class="product-feat"><div class="product-feat-dot"></div>Built for decorators and makers</div>
+        </div>
+        <div class="product-link" style="color:#F59E0B">Join the waitlist <span>→</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LEGACY UNLOCK MOMENT -->
+<section class="unlock">
+  <div class="unlock-inner">
+    <div class="unlock-text">
+      <div class="unlock-label fade-up">Merq Legacy</div>
+      <h2 class="unlock-h2 fade-up">The only vault that needs <em>people</em> to open.</h2>
+      <p class="unlock-p fade-up">There's no password to steal. No master key. No override. Your vault opens when — and only when — the people you trust most agree it should.</p>
+      <p class="unlock-p fade-up">You choose 3 or 4 trusted people: a spouse, an attorney, an adult child. When access is needed, one of them requests it. The others get notified and must approve. Three votes. Then it opens.</p>
+      <p class="unlock-p fade-up">It's the way trusts and estates have always worked in the legal world — without the lawyers, the paperwork, or the delays.</p>
+      <a href="https://merqlegacy.com" class="unlock-link fade-up">See how it works →</a>
+    </div>
+    <div class="unlock-visual fade-up">
+      <div class="unlock-vis-title">Vault Guardian Access Request</div>
+      <div class="unlock-guardians">
+        <div class="unlock-guardian approved">
+          <span class="unlock-guardian-avatar">👩</span>
+          <div class="unlock-guardian-info">
+            <div class="unlock-guardian-name">Mom</div>
+            <div class="unlock-guardian-role">Spouse</div>
+          </div>
+          <span class="unlock-badge approved">Approved ✓</span>
+        </div>
+        <div class="unlock-guardian approved">
+          <span class="unlock-guardian-avatar">👨‍💼</span>
+          <div class="unlock-guardian-info">
+            <div class="unlock-guardian-name">James</div>
+            <div class="unlock-guardian-role">Estate Attorney</div>
+          </div>
+          <span class="unlock-badge approved">Approved ✓</span>
+        </div>
+        <div class="unlock-guardian pending">
+          <span class="unlock-guardian-avatar">👩‍💼</span>
+          <div class="unlock-guardian-info">
+            <div class="unlock-guardian-name">Sarah</div>
+            <div class="unlock-guardian-role">Daughter</div>
+          </div>
+          <span class="unlock-badge pending">Pending...</span>
+        </div>
+      </div>
+      <div class="unlock-divider">3 of 3 must approve</div>
+      <div class="unlock-result">
+        <div class="unlock-result-text">🔐 Vault remains locked</div>
+        <div class="unlock-result-sub">Waiting for Sarah to approve</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VAULT RECEIPT MOMENT -->
+<section class="vault-moment">
+  <div class="vault-moment-inner">
+    <div class="vault-moment-visual fade-up">
+      <div class="vm-header">
+        <div class="vm-title">Receipt scanned</div>
+        <div class="vm-badge">✓ AI categorized</div>
+      </div>
+      <div class="vm-receipt">
+        <div class="vm-receipt-row">
+          <span class="vm-receipt-label">Merchant</span>
+          <span class="vm-receipt-value">Starbucks</span>
+        </div>
+        <div class="vm-receipt-row">
+          <span class="vm-receipt-label">Amount</span>
+          <span class="vm-receipt-value">$23.75</span>
+        </div>
+        <div class="vm-receipt-row">
+          <span class="vm-receipt-label">Memo</span>
+          <span class="vm-receipt-value" style="color:#8B5CF6">Prospect — John Smith, coffee</span>
+        </div>
+        <div class="vm-receipt-row">
+          <span class="vm-receipt-label">Date</span>
+          <span class="vm-receipt-value">April 10, 2026</span>
+        </div>
+        <div class="vm-receipt-row">
+          <span class="vm-receipt-label">Category</span>
+          <span class="vm-receipt-value category">☕ Client Meeting</span>
+        </div>
+      </div>
+      <div class="vm-ai-note">
+        <span class="vm-ai-icon">✨</span>
+        Added to April report · Client Meetings: $340 this month
+      </div>
+      <div class="vm-report">
+        <div>
+          <div class="vm-report-label">April spending so far</div>
+          <div class="vm-report-value">$2,847</div>
+        </div>
+        <a href="/merq-expense-report-sample.pdf" target="_blank" class="vm-report-link">View expense report →</a>
+      </div>
+    </div>
+    <div class="vault-moment-text">
+      <div class="vault-moment-label fade-up">Merq Vault</div>
+      <h2 class="vault-moment-h2 fade-up">Snap a receipt.<br/><em>Know your numbers.</em></h2>
+      <p class="vault-moment-p fade-up">Point your camera at any business receipt — client dinners, travel, supplies, subscriptions. Merq Vault reads it, pulls out the details, and drops it into the right expense category automatically.</p>
+      <p class="vault-moment-p fade-up">At the end of the month, your expense report is ready — every line item, every category, with images of every receipt attached. Print it, share it with your accountant, or export it. No spreadsheets. No chasing paper.</p>
+      <a href="https://merqvault.com" class="vault-moment-link fade-up">Try Merq Vault →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="trust-inner">
+    <h2 class="trust-h2 fade-up">Software that <strong>respects your life</strong> shouldn't be this rare.</h2>
+    <div class="trust-pills fade-up">
+      <div class="trust-pill">🏠 Built in Texas</div>
+      <div class="trust-pill">🔒 No data sold. Ever.</div>
+      <div class="trust-pill">💳 Subscription funded</div>
+      <div class="trust-pill">🚫 No advertising model</div>
+      <div class="trust-pill">👥 Built for real households</div>
+      <div class="trust-pill">📵 No bank login required</div>
+      <div class="trust-pill">🛡️ Privacy-first architecture</div>
+      <div class="trust-pill">✉️ hello@getmerq.com</div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <h2 class="closing-h2 fade-up">Pick your<br/><em>starting point.</em></h2>
+  <p class="closing-sub fade-up">Two products, live today. Both built around you.</p>
+  <div class="closing-products fade-up">
+    <a href="https://merqvault.com" class="closing-btn vault">🔐 Try Merq Vault</a>
+    <a href="https://merqlegacy.com" class="closing-btn legacy">🗝️ Organize Your Legacy</a>
+  </div>
+  <p class="closing-guarantee fade-up">Merq Vault: $59/year · 45-day free trial &nbsp;·&nbsp; Merq Legacy: $69/year · 30-day money-back guarantee</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div>
+      <a href="/" class="foot-logo">Merq<span>.</span></a>
+      <div class="foot-tagline">Software built around you.</div>
+    </div>
+    <div class="foot-cols">
+      <div class="foot-col">
+        <h4>Products</h4>
+        <a href="https://merqvault.com">Merq Vault</a>
+        <a href="https://merqlegacy.com">Merq Legacy</a>
+        <a href="#products">Merq Works</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="#philosophy">Our approach</a>
+        <a href="mailto:hello@getmerq.com">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h4>Legal</h4>
+        <a href="https://merqvault.com/privacy.html">Privacy</a>
+        <a href="https://merqvault.com/terms.html">Terms</a>
+        hello@getmerq.com
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span class="foot-copy">© 2025 Merq Software · Texas · Made with intention.</span>
+    <span class="foot-copy">Software built around you.</span>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Fade up on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Fallback
+  setTimeout(() => {
+    document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+  }, 2000);
+
+  // Animate unlock guardians
+  const guardians = document.querySelectorAll('.unlock-guardian');
+  const result = document.querySelector('.unlock-result');
+  let step = 0;
+  function animateUnlock() {
+    guardians.forEach((g, i) => {
+      g.classList.remove('approved', 'pending');
+      const badge = g.querySelector('.unlock-badge');
+      if (i < step) {
+        g.classList.add('approved');
+        badge.className = 'unlock-badge approved';
+        badge.textContent = 'Approved ✓';
+      } else {
+        g.classList.add('pending');
+        badge.className = 'unlock-badge pending';
+        badge.textContent = i === step ? 'Pending...' : 'Waiting';
+      }
+    });
+    if (step >= guardians.length) {
+      result.style.background = 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(52,211,153,0.1))';
+      result.style.borderColor = 'rgba(16,185,129,0.3)';
+      result.querySelector('.unlock-result-text').textContent = '🔓 Vault unlocked';
+      result.querySelector('.unlock-result-sub').textContent = 'All 3 Guardians approved';
+      setTimeout(() => {
+        step = 0;
+        result.style.bac

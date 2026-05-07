@@ -1,1 +1,16 @@
-{"cleanUrls":true,"trailingSlash":false}
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/vault",
+      "destination": "https://merqvault.com",
+      "permanent": true
+    },
+    {
+      "source": "/vault.html",
+      "destination": "https://merqvault.com",
+      "permanent": true
+    }
+  ]
+}
